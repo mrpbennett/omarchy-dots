@@ -1,1 +1,25 @@
 /docs
+
+# argocd
+.config/argocd/config
+
+# herdr
+.config/herdr/*
+!.config/herdr/config.toml
+
+# hunk
+/.config/hunk/state.json
+
+# zed
+/.config/zed/prompts
+
+# gh
+/.config/gh/hosts.yml
+
+# ClaudeCode
+.claude/*
+
+!.claude/CLAUDE.md
+!.claude/settings.json
+!.claude/statusline.json
+
