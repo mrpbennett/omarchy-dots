@@ -71,6 +71,8 @@ clean_omarchy() {
     [[ -d "$HOME/.config/$dir" ]] && rm -r "$HOME/.config/$dir"
   done
 
+  rm "$HOME/.local/share/applications/foot.desktop"
+
 }
 
 # install packages that aren't default
@@ -124,31 +126,22 @@ stow_dotfiles() {
     mkdir -p "$(dirname "$BACKUP_DIR/$conflict")"
     mv "$HOME/$conflict" "$BACKUP_DIR/$conflict"
     echo "backed up existing $HOME/$conflict -> $BACKUP_DIR/$conflict"
-  done < <(stow --dir="$stow_dir" --target="$HOME" --simulate --verbose=2 "$package" 2>&1 |
+  done < <(stow --dir="$stow_dir" --target="$HOME" --no-folding --simulate --verbose=2 "$package" 2>&1 |
     sed -n \
       -e 's/^CONFLICT when stowing [^:]*: cannot stow .* over existing target \(.*\) since neither a link nor a directory.*/\1/p' \
       -e 's/^CONFLICT when stowing [^:]*: existing target is not owned by stow: \(.*\)/\1/p')
 
-  stow --dir="$stow_dir" --target="$HOME" --restow --verbose "$package"
+  stow --dir="$stow_dir" --target="$HOME" --no-folding --restow --verbose "$package"
 }
 
 omarchy_update_mise() {
   omarchy update mise
 }
 
-# download the Trino CLI self-executing jar and install it as `trino`
-# https://trino.io/docs/current/client/cli.html#installation
-install_trino_cli() {
-  local version bin_dir
-  version=$(curl -fsSL https://api.github.com/repos/trinodb/trino/releases/latest |
-    grep -m1 '"tag_name"' | sed -E 's/.*"tag_name": *"([^"]+)".*/\1/')
-  bin_dir="$HOME/.local/bin"
-
-  mkdir -p "$bin_dir"
-  curl -fsSL -o "$bin_dir/trino" \
-    "https://github.com/trinodb/trino/releases/download/${version}/trino-cli-${version}"
-  chmod +x "$bin_dir/trino"
+omarchy_final_touches(){
+  omarch theme set "Catppuccin Latte"
 }
+
 
 # FUNCTIONS ---
 # Install ghostty and set it as default before removing foot, so the system
@@ -159,4 +152,4 @@ setup_zsh
 install_omarchy_plugins
 stow_dotfiles
 omarchy_update_mise
-install_trino_cli
+omarchy_final_touches 
