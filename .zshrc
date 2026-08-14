@@ -26,14 +26,19 @@ zle -N zle-line-init
 # VIM MODE END ---
 #
 # Make an alias for invoking commands you use constantly
+alias stow-omarchy-dots="stow --dir="$HOME/.dotfiles" --target="$HOME" --restow omarchy-dots"
 
 alias e="exit"
 alias v="nvim"
 alias bt="btop"
 alias cat="bat"
 alias curl="curlie"
+
 alias lzg='lazygit'
 alias lzd='lazydocker'
+
+alias mi="mise install"
+alias mup="mise upgrade"
 
 # UV ---
 alias ui="uv init"
