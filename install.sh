@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-REPO_DIR="$HOME/.local/share/omarchy-dots"
+REPO_DIR="$HOME/.dotfiles/omarchy-dots"
 BACKUP_DIR="$HOME/.local/share/omarchy-dots-backup"
 
 cat <<'EOF'
@@ -24,7 +24,10 @@ DOTFILES_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]:-$REPO_DIR}")" 2>/dev/null 
 
 if [[ ! -d $DOTFILES_DIR/.git ]]; then
   DOTFILES_DIR=$REPO_DIR
-  [[ -d $DOTFILES_DIR/.git ]] || git clone --depth 1 https://github.com/mrpbennett/omarchy-dots.git "$DOTFILES_DIR"
+  if [[ ! -d $DOTFILES_DIR/.git ]]; then
+    mkdir -p "$(dirname "$DOTFILES_DIR")"
+    git clone --depth 1 https://github.com/mrpbennett/omarchy-dots.git "$DOTFILES_DIR"
+  fi
 fi
 
 # remove default webapps and packages
@@ -93,6 +96,18 @@ setup_zsh() {
   omarchy-setup-zsh
 }
 
+# install omarchy shell plugins from their git remotes
+install_omarchy_plugins() {
+  plugin_urls=(
+    "https://github.com/mrpbennett/qs-fortivpn.git"
+    "https://github.com/AksharP5/omarchy-radio-atlas.git"
+  )
+
+  for url in "${plugin_urls[@]}"; do
+    omarchy plugin add "$url" --enable --yes || true
+  done
+}
+
 # symlink the dotfiles repo into $HOME (repo root mirrors $HOME layout)
 stow_dotfiles() {
   local stow_dir package conflict
@@ -136,9 +151,12 @@ install_trino_cli() {
 }
 
 # FUNCTIONS ---
-clean_omarchy
+# Install ghostty and set it as default before removing foot, so the system
+# never has a default terminal pointing at an uninstalled package.
 install_required_packages
+clean_omarchy
 setup_zsh
+install_omarchy_plugins
 stow_dotfiles
 omarchy_update_mise
 install_trino_cli
