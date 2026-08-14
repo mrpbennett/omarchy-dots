@@ -25,8 +25,17 @@ zle -N zle-line-init
 
 # VIM MODE END ---
 #
-# Make an alias for invoking commands you use constantly
-alias stow-omarchy-dots="stow --dir="$HOME/.dotfiles" --target="$HOME" --restow omarchy-dots"
+# CUSTOM aliases ---
+
+# Stow ---
+# add new files to stow
+alias re-omarchy-dots="stow --dir="$HOME/.dotfiles" --target="$HOME" --restow omarchy-dots"
+
+# adopt new files to stow
+alias ad-omarchy-dots="stow --dir="$HOME/.dotfiles" --target="$HOME" --adopt omarchy-dots"
+
+# dry run stow
+alias dr-omarchy-dots="stow --dir="$HOME/.dotfiles" --target="$HOME" --restow --simulate omarchy-dots"
 
 alias e="exit"
 alias v="nvim"
