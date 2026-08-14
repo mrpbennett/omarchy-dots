@@ -22,7 +22,7 @@ enabled = true
 autostart = true
 
 [ai]
-enabled = false
+enabled = true
 
 [sync]
 enabled = false
