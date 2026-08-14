@@ -1,0 +1,52 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "autoupdate": true,
+  "permission": {
+    "bash": {
+      "*": "allow",
+      "rm -rf /*": "deny",
+      "rm -rf ~/*": "deny",
+      "rm -rf ./*": "deny",
+      "rm -f*": "deny",
+      "rm -rf*": "deny",
+      "*> /*": "deny",
+      "dd if=/dev/zero*": "deny",
+      "dd if=/dev/null*": "deny",
+      "mkfs*": "deny",
+      "fdisk*": "deny",
+      "kill -9 1*": "deny",
+      "chmod -R 777 /*": "deny",
+      "chown -R*": "deny",
+      "git reset --hard*": "deny",
+      "git push --force*": "deny",
+      "git push -f*": "deny",
+      "git clean -fd*": "deny",
+      "git clean -fdx*": "deny",
+      "git clean -fx*": "deny",
+      "git checkout -- .*": "deny",
+      "git restore .*": "deny",
+      "git branch -D*": "deny",
+      "git push origin --delete*": "deny",
+      "git stash clear*": "deny",
+      "git reflog expire*": "deny",
+      "git gc --prune=now*": "deny"
+    },
+    "read": {
+      "*": "allow",
+      "**/.env": "deny",
+      "**/.env.*": "deny",
+      "**/secrets/*": "deny",
+      "**/*credential*": "deny",
+      "**/*.pem": "deny",
+      "**/*.key": "deny"
+    },
+    "webfetch": "allow",
+  },
+  "provider": {
+    "openai": {
+      "options": {
+        "baseURL": "https://us.api.openai/v1"
+      }
+    }
+  }
+}

@@ -1,0 +1,5 @@
+mode = "split"
+vcs = "git"
+line_numbers = true
+exclude_untracked = false
+wrap_line = false

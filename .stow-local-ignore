@@ -1,0 +1,29 @@
+# NOTE: a .stow-local-ignore file REPLACES stow's built-in default ignore
+# list rather than adding to it, so the defaults are reproduced here
+# verbatim (see `info stow` -> Ignore Lists) plus our own additions below.
+
+RCS
+.+,v
+
+CVS
+\.\#.+	  # CVS conflict files / emacs lock files
+\.cvsignore
+
+\.svn
+_darcs
+\.hg
+
+\.git
+\.gitignore
+\.gitmodules
+
+.+~	  # emacs backup files
+\#.*\#	  # emacs autosave files
+
+^/README.*
+^/LICENSE.*
+^/COPYING
+
+# omarchy-dots additions
+\.DS_Store	  # macOS junk, do not stow into $HOME
+lazy-lock\.json	  # machine-specific neovim plugin lockfile, causes repo churn
