@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=Apple Podcasts
+Comment=Apple Podcasts
+Exec=omarchy-launch-webapp https://podcasts.apple.com/gb/new
+Terminal=false
+Type=Application
+Icon=apple-podcasts
+StartupNotify=true

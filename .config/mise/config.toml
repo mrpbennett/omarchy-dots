@@ -1,0 +1,26 @@
+[tools]
+argocd = "latest"
+atuin = "latest"
+aws-cli = { version = "latest", symlink_bins = "true"}
+claude = "latest"
+codex = "latest"
+curlie = "latest"
+java = "25"
+gh = "latest"
+helm = "latest"
+hunk = "latest"
+k9s = "latest"
+kubectl = "latest"
+krew = "latest"
+opencode = "latest"
+ty = "latest"
+uv = "latest"
+worktrunk = "latest"
+yazi = 'latest'
+
+lua = "latest"
+go = "latest"
+node = "26.7.0"
+python = "latest"
+ruff = "latest"
+rust = "latest"

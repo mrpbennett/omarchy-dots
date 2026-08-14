@@ -1,0 +1,21 @@
+[mgr]
+prepend_keymap = [
+    { on = [ "!" ], for = "unix", run = 'shell "$SHELL" --block', desc = "Open $SHELL here" },
+
+    { on = [ "g", "c" ], run = "cd ~/.config", desc = "Go to config directory" },
+    { on = [ "g", "p" ], run = "cd ~/Projects/", desc = "Go to projects" },
+    { on = [ "g", "t" ], run = "cd ~/Projects/pulsepoint/app-kubernetes/clusters/et-ma2-prod/tam/", desc = "Go to tam namespace" },
+
+    { on = [ "/" ], run = "filter --smart", desc = "Find" },
+    { on = [ "?" ], run = "find --previous --smart", desc = "Find previous" },
+
+    { on = [ "n" ], run = "find_arrow", desc = "Next found" },
+    { on = [ "N" ], run = "find_arrow --previous", desc = "Previous found" },
+
+    { on = [ "f" ], run = "find --smart", desc = "Filter" },
+]
+
+[input]
+prepend_keymap = [
+    { on = [ "<Esc>" ], run = "close", desc = "Cancel input" },
+]
