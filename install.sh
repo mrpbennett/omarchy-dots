@@ -28,7 +28,7 @@ if [[ ! -d $DOTFILES_DIR/.git ]]; then
 fi
 
 # remove default webapps and packages
-clean_omarchy(){
+clean_omarchy() {
   # standard webapps i want to remove
   webapps=(
     "Basecamp"
@@ -71,7 +71,7 @@ clean_omarchy(){
 }
 
 # install packages that aren't default
-install_required_packages(){
+install_required_packages() {
   packages=(
     "stow"
     "bitwarden"
@@ -81,16 +81,20 @@ install_required_packages(){
   for package in "${packages[@]}"; do
     omarchy pkg add "${package}"
   done
+
+  # set ghostty as default
+  omarchy-install-terminal ghostty
+
 }
 
 # switch from bash to zsh
-setup_zsh(){
+setup_zsh() {
   omarchy pkg add omarchy-zsh
   omarchy-setup-zsh
 }
 
 # symlink the dotfiles repo into $HOME (repo root mirrors $HOME layout)
-stow_dotfiles(){
+stow_dotfiles() {
   local stow_dir package conflict
   stow_dir=$(dirname "$DOTFILES_DIR")
   package=$(basename "$DOTFILES_DIR")
@@ -105,24 +109,24 @@ stow_dotfiles(){
     mkdir -p "$(dirname "$BACKUP_DIR/$conflict")"
     mv "$HOME/$conflict" "$BACKUP_DIR/$conflict"
     echo "backed up existing $HOME/$conflict -> $BACKUP_DIR/$conflict"
-  done < <(stow --dir="$stow_dir" --target="$HOME" --simulate --verbose=2 "$package" 2>&1 \
-            | sed -n \
-                -e 's/^CONFLICT when stowing [^:]*: cannot stow .* over existing target \(.*\) since neither a link nor a directory.*/\1/p' \
-                -e 's/^CONFLICT when stowing [^:]*: existing target is not owned by stow: \(.*\)/\1/p')
+  done < <(stow --dir="$stow_dir" --target="$HOME" --simulate --verbose=2 "$package" 2>&1 |
+    sed -n \
+      -e 's/^CONFLICT when stowing [^:]*: cannot stow .* over existing target \(.*\) since neither a link nor a directory.*/\1/p' \
+      -e 's/^CONFLICT when stowing [^:]*: existing target is not owned by stow: \(.*\)/\1/p')
 
   stow --dir="$stow_dir" --target="$HOME" --restow --verbose "$package"
 }
 
-omarchy_update_mise(){
+omarchy_update_mise() {
   omarchy update mise
 }
 
 # download the Trino CLI self-executing jar and install it as `trino`
 # https://trino.io/docs/current/client/cli.html#installation
-install_trino_cli(){
+install_trino_cli() {
   local version bin_dir
-  version=$(curl -fsSL https://api.github.com/repos/trinodb/trino/releases/latest \
-    | grep -m1 '"tag_name"' | sed -E 's/.*"tag_name": *"([^"]+)".*/\1/')
+  version=$(curl -fsSL https://api.github.com/repos/trinodb/trino/releases/latest |
+    grep -m1 '"tag_name"' | sed -E 's/.*"tag_name": *"([^"]+)".*/\1/')
   bin_dir="$HOME/.local/bin"
 
   mkdir -p "$bin_dir"
@@ -130,7 +134,6 @@ install_trino_cli(){
     "https://github.com/trinodb/trino/releases/download/${version}/trino-cli-${version}"
   chmod +x "$bin_dir/trino"
 }
-
 
 # FUNCTIONS ---
 clean_omarchy
