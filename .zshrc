@@ -34,7 +34,6 @@ alias cat="bat"
 alias curl="curlie"
 alias lzg='lazygit'
 alias lzd='lazydocker'
-alias mi="mise install"
 
 # UV ---
 alias ui="uv init"
