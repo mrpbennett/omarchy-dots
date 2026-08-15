@@ -24,13 +24,13 @@ path:
 
 ```bash
 # re-apply symlinks after editing files in this repo
-stow --dir="$HOME/Projects/personal" --target="$HOME" --no-folding --restow omarchy-dots
+stow --dir="$HOME/Projects" --target="$HOME" --no-folding --restow omarchy-dots
 
 # adopt a config an app regenerated on disk back into the repo
-stow --dir="$HOME/Projects/personal" --target="$HOME" --no-folding --adopt omarchy-dots
+stow --dir="$HOME/Projects" --target="$HOME" --no-folding --adopt omarchy-dots
 
 # dry run — show what would change without touching anything
-stow --dir="$HOME/Projects/personal" --target="$HOME" --no-folding --restow --simulate omarchy-dots
+stow --dir="$HOME/Projects" --target="$HOME" --no-folding --restow --simulate omarchy-dots
 ```
 
 After `--adopt`, always `git diff` to review what changed before committing.
