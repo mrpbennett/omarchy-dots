@@ -54,7 +54,7 @@ alias mup="mise upgrade"
 
 alias dl="cd ~/Downloads/"
 alias dev="cd ~/Projects/"
-alias devp="cd ~/Projects/pulsepoint/"
+alias devp="cd ~/Work/pulsepoint/"
 
 # UV ---
 alias ui="uv init"

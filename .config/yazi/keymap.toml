@@ -4,7 +4,7 @@ prepend_keymap = [
 
     { on = [ "g", "c" ], run = "cd ~/.config", desc = "Go to config directory" },
     { on = [ "g", "p" ], run = "cd ~/Projects/", desc = "Go to projects" },
-    { on = [ "g", "t" ], run = "cd ~/Projects/pulsepoint/app-kubernetes/clusters/et-ma2-prod/tam/", desc = "Go to tam namespace" },
+    { on = [ "g", "t" ], run = "cd ~/Work/pulsepoint/app-kubernetes/clusters/et-ma2-prod/tam/", desc = "Go to tam namespace" },
 
     { on = [ "/" ], run = "filter --smart", desc = "Find" },
     { on = [ "?" ], run = "find --previous --smart", desc = "Find previous" },

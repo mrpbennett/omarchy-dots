@@ -1,5 +1,9 @@
 /docs
 
+# macOS junk
+.DS_Store
+**/.DS_Store
+
 # argocd
 .config/argocd/config
 
