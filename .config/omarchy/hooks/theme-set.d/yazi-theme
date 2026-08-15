@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Hot-reload running yazi instances so they pick up the newly generated
+# omarchy flavor without restarting. Yazi reads config once at startup, but
+# the `app:theme` action (yazi #3906) re-reads theme.toml and the active
+# flavor from disk and re-renders in place.
+#
+# Runs outside any yazi subshell (no $YAZI_ID to target one instance), so
+# broadcast the action to every running instance through the DDS server
+# (receiver 0 = all peers); dds.lua's `dds-emit` subscription turns it back
+# into ya.emit.
+#
+# This hook is called by omarchy-hook with the snake-cased theme name in $1.
+
+if pgrep -x yazi >/dev/null; then
+  timeout 10 ya pub-to 0 dds-emit --json '["app:theme"]' >/dev/null 2>&1
+fi

@@ -29,13 +29,16 @@ zle -N zle-line-init
 
 # Stow ---
 # add new files to stow
-alias re-omarchy-dots="stow --dir="$HOME/.dotfiles" --target="$HOME" --restow omarchy-dots"
+# alias re-omarchy-dots="stow --dir="$HOME/.dotfiles" --target="$HOME" --restow omarchy-dots"
+alias re-omarchy-dots="stow --dir="$HOME/Projects/personal" --target="$HOME" --no-folding --restow omarchy-dots"
 
 # adopt new files to stow
-alias ad-omarchy-dots="stow --dir="$HOME/.dotfiles" --target="$HOME" --adopt omarchy-dots"
+# alias ad-omarchy-dots="stow --dir="$HOME/.dotfiles" --target="$HOME" --adopt omarchy-dots"
+alias ad-omarchy-dots="stow --dir="$HOME/Projects/personal" --target="$HOME" --no-folding --adopt omarchy-dots"
 
 # dry run stow
-alias dr-omarchy-dots="stow --dir="$HOME/.dotfiles" --target="$HOME" --restow --simulate omarchy-dots"
+# alias dr-omarchy-dots="stow --dir="$HOME/.dotfiles" --target="$HOME" --restow --simulate omarchy-dots"
+alias dr-omarchy-dots="stow --dir="$HOME/Projects/personal" --target="$HOME" --no-folding --restow --simulate omarchy-dots"
 
 alias e="exit"
 alias v="nvim"
@@ -48,6 +51,10 @@ alias lzd='lazydocker'
 
 alias mi="mise install"
 alias mup="mise upgrade"
+
+alias dl="cd ~/Downloads/"
+alias dev="cd ~/Projects/"
+alias devp="cd ~/Projects/pulsepoint/"
 
 # UV ---
 alias ui="uv init"

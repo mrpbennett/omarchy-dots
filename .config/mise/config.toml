@@ -16,7 +16,7 @@ opencode = "latest"
 ty = "latest"
 uv = "latest"
 worktrunk = "latest"
-yazi = 'latest'
+yazi = '26.8.15'
 
 lua = "latest"
 go = "latest"
