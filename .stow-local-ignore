@@ -26,6 +26,8 @@ _darcs
 
 # omarchy-dots additions
 ^/install\.sh	  # installer script, do not stow into $HOME
+^/AGENTS\.md
 \.DS_Store	  # macOS junk, do not stow into $HOME
 lazy-lock\.json	  # machine-specific neovim plugin lockfile, causes repo churn
 ^/\.config/nvim/lua/plugins/theme\.lua  # managed by omarchy theme machinery, never stow
+^/\.config/yazi/flavors/omarchy\.yazi/flavor\.toml  # symlink to omarchy state theme dir, never stow
