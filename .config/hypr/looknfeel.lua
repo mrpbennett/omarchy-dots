@@ -15,14 +15,14 @@
 
 -- https://wiki.hypr.land/Configuring/Basics/Variables/#decoration
 hl.config({
-  decoration = {
-    -- Use round window corners.
-    rounding = 6,
+	decoration = {
+		-- Use round window corners.
+		rounding = 0,
 
-    -- Dim unfocused windows (0.0 = no dim, 1.0 = fully dimmed).
-    dim_inactive = true,
-    dim_strength = 0.10,
-  },
+		-- Dim unfocused windows (0.0 = no dim, 1.0 = fully dimmed).
+		dim_inactive = true,
+		dim_strength = 0.10,
+	},
 })
 
 -- https://wiki.hypr.land/Configuring/Basics/Variables/#animations

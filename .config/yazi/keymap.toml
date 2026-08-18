@@ -1,6 +1,7 @@
 [mgr]
 prepend_keymap = [
     { on = [ "!" ], for = "unix", run = 'shell "$SHELL" --block', desc = "Open $SHELL here" },
+    { on = [ "v" ], for = "unix", run = 'shell --block -- vd %h', desc = "Open with visidata" },
 
     { on = [ "g", "c" ], run = "cd ~/.config", desc = "Go to config directory" },
     { on = [ "g", "p" ], run = "cd ~/Projects/", desc = "Go to projects" },

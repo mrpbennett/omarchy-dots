@@ -103,11 +103,15 @@ install_omarchy_plugins() {
   plugin_urls=(
     "https://github.com/mrpbennett/qs-fortivpn.git"
     "https://github.com/AksharP5/omarchy-radio-atlas.git"
+    "https://github.com/fabean/omarchy-herdr"
   )
 
   for url in "${plugin_urls[@]}"; do
     omarchy plugin add "$url" --enable --yes || true
   done
+
+  # run the install-passwordless-helper script (as a subprocess: it calls exec pkexec)
+  bash "$HOME/.config/omarchy/plugins/mrpbennett.fortivpn/scripts/install-passwordless-helper.sh"
 }
 
 # symlink the dotfiles repo into $HOME (repo root mirrors $HOME layout)
@@ -134,14 +138,33 @@ stow_dotfiles() {
   stow --dir="$stow_dir" --target="$HOME" --no-folding --restow --verbose "$package"
 }
 
-omarchy_update_mise() {
+omarchy_update_mise_and_dev() {
   omarchy update mise
+
+  # install krew: plugin manager for kctl
+  (
+    set -x
+    cd "$(mktemp -d)" &&
+      OS="$(uname | tr '[:upper:]' '[:lower:]')" &&
+      ARCH="$(uname -m | sed -e 's/x86_64/amd64/' -e 's/\(arm\)\(64\)\?.*/\1\2/' -e 's/aarch64$/arm64/')" &&
+      KREW="krew-${OS}_${ARCH}" &&
+      curl -fsSLO "https://github.com/kubernetes-sigs/krew/releases/latest/download/${KREW}.tar.gz" &&
+      tar zxvf "${KREW}.tar.gz" &&
+      ./"${KREW}" install krew
+  )
 }
 
-omarchy_final_touches(){
+omarchy_final_touches() {
+  omarchy dns Cloudflare
   omarch theme set "Catppuccin Latte"
-}
 
+  # adding yazi plugins
+  # adding duckdb to view csv / table data in yazi
+  ya pkg add wylie102/duckdb
+  curl https://install.duckdb.org | sh
+
+  omarchy restart shell
+}
 
 # FUNCTIONS ---
 # Install ghostty and set it as default before removing foot, so the system
@@ -151,5 +174,5 @@ clean_omarchy
 setup_zsh
 install_omarchy_plugins
 stow_dotfiles
-omarchy_update_mise
-omarchy_final_touches 
+omarchy_update_mise_and_dev
+omarchy_final_touches

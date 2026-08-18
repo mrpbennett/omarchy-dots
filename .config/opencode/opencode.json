@@ -41,11 +41,14 @@
       "**/*.key": "deny"
     },
     "webfetch": "allow",
+    "external_directory": {
+      "*": "allow"
+    },
   },
   "provider": {
     "openai": {
       "options": {
-        "baseURL": "https://us.api.openai/v1"
+        "baseURL": "https://us.api.openai.com/v1"
       }
     }
   }

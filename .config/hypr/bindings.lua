@@ -23,6 +23,10 @@
 -- Disable a default binding without replacing it.
 -- hl.unbind("SUPER + SHIFT + B")
 
+-- Move Screenshot from PRINT to SUPER + SHIFT + 3.
+hl.unbind("PRINT")
+o.bind("SUPER + ALT + 3", "Screenshot", "omarchy-capture-screenshot")
+
 -- Swap Tmux and Herdr keybindings.
 -- SUPER + ALT + RETURN was: Tmux (terminal-tmux)
 hl.unbind("SUPER + ALT + RETURN")

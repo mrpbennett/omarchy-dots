@@ -1,3 +1,6 @@
+# Omarchy environment (OMARCHY_PATH + PATH), needed even for non-interactive shells
+[[ -r /usr/share/omarchy/default/bash/env-bootstrap ]] && source /usr/share/omarchy/default/bash/env-bootstrap
+
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
@@ -52,6 +55,8 @@ alias lzd='lazydocker'
 alias mi="mise install"
 alias mup="mise upgrade"
 
+alias oc="opencode"
+
 alias dl="cd ~/Downloads/"
 alias dev="cd ~/Projects/"
 alias devp="cd ~/Work/pulsepoint/"
@@ -100,3 +105,6 @@ function y() {
   [ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
   rm -f -- "$tmp"
 }
+
+# work related items ---
+source "$HOME/pulsepoint.sh"

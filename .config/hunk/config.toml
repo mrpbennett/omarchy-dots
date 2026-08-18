@@ -1,3 +1,4 @@
+theme = "auto"
 mode = "split"
 vcs = "git"
 line_numbers = true

@@ -46,8 +46,6 @@
 [branch]
     sort = -committerdate     # most recently used branches first
 
-[credential]
-    helper = osxkeychain
 
 
 # ── Aliases ─────────────────────────────────────────────────────────────────
