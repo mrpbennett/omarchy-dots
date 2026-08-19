@@ -34,6 +34,9 @@
           "id": "omarchy.weather"
         },
         {
+          "id": "alvarosaavedra.dst-clocks"
+        },
+        {
           "id": "omarchy.system-update"
         }
       ],
@@ -42,16 +45,10 @@
           "id": "omarchy.tray"
         },
         {
-          "id": "io.github.fabean.herdr"
-        },
-        {
           "id": "mrpbennett.sesh"
         },
         {
           "id": "mrpbennett.docker"
-        },
-        {
-          "id": "akshar.radio-atlas"
         },
         {
           "id": "omarchy.tailscale"

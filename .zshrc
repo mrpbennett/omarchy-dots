@@ -56,6 +56,7 @@ alias mi="mise install"
 alias mup="mise upgrade"
 
 alias oc="opencode"
+alias rtui="redis-tui"
 
 alias dl="cd ~/Downloads/"
 alias dev="cd ~/Projects/"

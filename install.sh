@@ -102,8 +102,6 @@ setup_zsh() {
 install_omarchy_plugins() {
   plugin_urls=(
     "https://github.com/mrpbennett/qs-fortivpn.git"
-    "https://github.com/AksharP5/omarchy-radio-atlas.git"
-    "https://github.com/fabean/omarchy-herdr"
   )
 
   for url in "${plugin_urls[@]}"; do
@@ -155,13 +153,15 @@ omarchy_update_mise_and_dev() {
 }
 
 omarchy_final_touches() {
-  omarchy dns Cloudflare
-  omarch theme set "Catppuccin Latte"
+  omarchy theme set "Catppuccin Latte"
 
   # adding yazi plugins
   # adding duckdb to view csv / table data in yazi
   ya pkg add wylie102/duckdb
   curl https://install.duckdb.org | sh
+
+  # redis-tui
+  curl -fsSL https://raw.githubusercontent.com/davidbudnick/redis-tui/main/install.sh | bash
 
   omarchy restart shell
 }

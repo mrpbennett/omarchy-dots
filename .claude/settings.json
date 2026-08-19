@@ -39,7 +39,6 @@
       "Bash(git gc --prune=now)"
     ]
   },
-  "tui": "fullscreen",
   "skipDangerousModePermissionPrompt": true,
   "theme": "custom:omarchy",
   "model": "sonnet",

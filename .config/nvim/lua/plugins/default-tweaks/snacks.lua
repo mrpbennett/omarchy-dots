@@ -56,7 +56,6 @@ return {
     picker = {
       exclude = {
         ".git",
-        ".venv",
         ".DS_Store",
       },
       sources = {
