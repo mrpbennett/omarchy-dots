@@ -62,6 +62,9 @@ alias dl="cd ~/Downloads/"
 alias dev="cd ~/Projects/"
 alias devp="cd ~/Work/pulsepoint/"
 
+alias vpn='omarchy-fortivpn start --push'
+alias svpn="omarchy-fortivpn stop"
+
 # UV ---
 alias ui="uv init"
 alias ua="uv add"
@@ -105,6 +108,16 @@ function y() {
   IFS= read -r -d '' cwd <"$tmp"
   [ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
   rm -f -- "$tmp"
+}
+
+# encodes a string and copies to clipboard
+function b64e() {
+  echo -n "$1" | base64 | wl-copy
+}
+
+# decodes a string and copies to clipboard
+function b64d() {
+  echo -n "$1" | base64 -d | wl-copy
 }
 
 # work related items ---

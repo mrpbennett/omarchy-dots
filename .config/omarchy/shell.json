@@ -34,9 +34,6 @@
           "id": "omarchy.weather"
         },
         {
-          "id": "alvarosaavedra.dst-clocks"
-        },
-        {
           "id": "omarchy.system-update"
         }
       ],
@@ -48,7 +45,7 @@
           "id": "mrpbennett.sesh"
         },
         {
-          "id": "mrpbennett.docker"
+          "id": "mrpbennett.herdr-agents"
         },
         {
           "id": "omarchy.tailscale"
@@ -62,6 +59,9 @@
         },
         {
           "id": "omarchy.agents"
+        },
+        {
+          "id": "mrpbennett.dusk"
         },
         {
           "id": "omarchy.bluetooth"

@@ -23,6 +23,11 @@
 -- Disable a default binding without replacing it.
 -- hl.unbind("SUPER + SHIFT + B")
 
+-- Dusk mode switching (mrpbennett.dusk auto theme).
+o.bind("SUPER + SHIFT + ALT + Z", "Dusk: Auto mode", "omarchy-auto-theme solar")
+o.bind("SUPER + SHIFT + ALT + L", "Dusk: Light mode", "omarchy-auto-theme manual light")
+o.bind("SUPER + SHIFT + ALT + D", "Dusk: Dark mode", "omarchy-auto-theme manual dark")
+
 -- Move Screenshot from PRINT to SUPER + SHIFT + 3.
 hl.unbind("PRINT")
 o.bind("SUPER + ALT + 3", "Screenshot", "omarchy-capture-screenshot")
