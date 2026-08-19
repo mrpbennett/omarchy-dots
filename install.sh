@@ -102,6 +102,8 @@ setup_zsh() {
 install_omarchy_plugins() {
   plugin_urls=(
     "https://github.com/mrpbennett/qs-fortivpn.git"
+    "https://github.com/mrpbennett/qs-dusk.git"
+    "https://github.com/mrpbennett/qs-herdr-agents.git"
   )
 
   for url in "${plugin_urls[@]}"; do
