@@ -39,12 +39,13 @@
       "Bash(git gc --prune=now)"
     ]
   },
-  "skipDangerousModePermissionPrompt": true,
-  "theme": "custom:omarchy",
   "model": "sonnet",
-  "editorMode": "vim",
   "statusLine": {
     "type": "command",
     "command": "bash ~/.claude/statusline.sh"
-  }
+  },
+  "effortLevel": "medium",
+  "skipDangerousModePermissionPrompt": true,
+  "theme": "custom:omarchy",
+  "editorMode": "vim"
 }

@@ -6,7 +6,7 @@
 
 ## File & Output Conventions
 
-- All `.md` output files must be placed within a `docs/` directory — do not pollute the project root with loose Markdown files.
+- All `.md` output files must be placed within a `docs/` directory — do not pollute the project root with loose Markdown files. Unless the files are `README.md` or `CHANGELOG.md`
 - Prefer pointers over copies: reference `file:line` rather than embedding code snippets that will become stale.
 
 ## Context & Memory Policy

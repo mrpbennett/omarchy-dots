@@ -7,6 +7,8 @@ return {
       sh = { "bash" },
       bash = { "bash" },
       --
+      python = { "ruff" },
+      --
       sql = { "sqruff" },
       --
       yaml = { "yamllint" },

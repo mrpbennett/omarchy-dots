@@ -25,3 +25,5 @@ python = "latest"
 ruff = "latest"
 rust = "latest"
 glow = "3.0.0"
+
+"go:github.com/mrpbennett/bucky/cmd/bucky" = "latest"

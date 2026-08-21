@@ -78,8 +78,8 @@ next_workspace = ["prefix+shift+n", "alt+down"]
 accent = "blue"
 
 # tmux drew single-line dividers between adjacent panes and no outer frame
-pane_gaps = false
-pane_outer_borders = false
+pane_gaps = true
+pane_outer_borders = true
 
 # tmux had no scrollbar column beside its panes
 pane_scrollbars = false

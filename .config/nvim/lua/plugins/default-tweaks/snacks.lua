@@ -53,6 +53,10 @@ return {
       enabled = true,
     },
     ---
+    explorer = {
+      trash = true,
+    },
+    --
     picker = {
       exclude = {
         ".git",
@@ -62,6 +66,14 @@ return {
         explorer = {
           ignored = true,
           hidden = true,
+
+          win = {
+            list = {
+              keys = {
+                ["<C-x>"] = { "edit_split", mode = { "i", "n" } },
+              },
+            },
+          },
         },
         files = {
           ignored = true,

@@ -45,6 +45,7 @@ alias dr-omarchy-dots="stow --dir="$HOME/Projects" --target="$HOME" --no-folding
 
 alias e="exit"
 alias v="nvim"
+alias h="herdr"
 alias bt="btop"
 alias cat="bat"
 alias curl="curlie"
@@ -64,6 +65,7 @@ alias devp="cd ~/Work/pulsepoint/"
 
 alias vpn='omarchy-fortivpn start --push'
 alias svpn="omarchy-fortivpn stop"
+alias osh="omarchy-sesh"
 
 # UV ---
 alias ui="uv init"

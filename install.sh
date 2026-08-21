@@ -104,14 +104,13 @@ install_omarchy_plugins() {
     "https://github.com/mrpbennett/qs-fortivpn.git"
     "https://github.com/mrpbennett/qs-dusk.git"
     "https://github.com/mrpbennett/qs-herdr-agents.git"
+    "https://github.com/mrpbennett/omarchy-sesh.git"
   )
 
   for url in "${plugin_urls[@]}"; do
     omarchy plugin add "$url" --enable --yes || true
   done
 
-  # run the install-passwordless-helper script (as a subprocess: it calls exec pkexec)
-  bash "$HOME/.config/omarchy/plugins/mrpbennett.fortivpn/scripts/install-passwordless-helper.sh"
 }
 
 # symlink the dotfiles repo into $HOME (repo root mirrors $HOME layout)
@@ -161,9 +160,6 @@ omarchy_final_touches() {
   # adding duckdb to view csv / table data in yazi
   ya pkg add wylie102/duckdb
   curl https://install.duckdb.org | sh
-
-  # redis-tui
-  curl -fsSL https://raw.githubusercontent.com/davidbudnick/redis-tui/main/install.sh | bash
 
   omarchy restart shell
 }

@@ -5,8 +5,11 @@ return {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
+        -- disable
+        pyright = { autostart = false },
         --
         bashls = {},
+        --
         --
         -- ty resolves its .venv relative to the OS process cwd, not the LSP
         -- root_dir, and nvim-lspconfig's ty.lua never sets cmd_cwd. That means
