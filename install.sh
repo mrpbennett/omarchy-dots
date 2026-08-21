@@ -18,6 +18,9 @@ cat <<'EOF'
 
 EOF
 
+# Update omarchy - before actioning anything else
+omarchy update
+
 # Resolve the dotfiles directory: prefer the repo beside this script, fall back
 # to REPO_DIR, and clone from GitHub if neither exists yet.
 DOTFILES_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]:-$REPO_DIR}")" 2>/dev/null && pwd || true)
@@ -105,6 +108,7 @@ install_omarchy_plugins() {
     "https://github.com/mrpbennett/qs-dusk.git"
     "https://github.com/mrpbennett/qs-herdr-agents.git"
     "https://github.com/mrpbennett/omarchy-sesh.git"
+    "https://github.com/sspaeti/omarchy-timezones-plugin"
   )
 
   for url in "${plugin_urls[@]}"; do

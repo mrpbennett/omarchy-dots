@@ -28,10 +28,6 @@ o.bind("SUPER + SHIFT + ALT + Z", "Dusk: Auto mode", "omarchy-auto-theme solar")
 o.bind("SUPER + SHIFT + ALT + L", "Dusk: Light mode", "omarchy-auto-theme manual light")
 o.bind("SUPER + SHIFT + ALT + D", "Dusk: Dark mode", "omarchy-auto-theme manual dark")
 
--- Move Screenshot from PRINT to SUPER + SHIFT + 3.
-hl.unbind("PRINT")
-o.bind("SUPER + ALT + 3", "Screenshot", "omarchy-capture-screenshot")
-
 -- Swap Tmux and Herdr keybindings.
 -- SUPER + ALT + RETURN was: Tmux (terminal-tmux)
 hl.unbind("SUPER + ALT + RETURN")
@@ -50,3 +46,16 @@ o.bind("SUPER + CTRL + K", "Tmux keybindings", "omarchy-menu-tmux-keybindings")
 -- o.bind("SUPER + SHIFT + S", nil, "omarchy-capture-screenshot")
 -- o.bind("SUPER + H", nil, "voxtype record toggle")
 -- o.bind("SUPER + PERIOD", nil, "omarchy-shell shell toggle omarchy.emojis")
+
+-- OMACUT keybinding setup
+hl.unbind("PRINT")
+hl.unbind("F12")
+hl.unbind("ALT + SHIFT + 4")
+
+o.bind("SUPER + ALT + 3", "Screenshot", "omasnap")
+
+hl.layer_rule({
+	match = { namespace = "^omasnap$" },
+	no_anim = true,
+	animation = "none",
+})

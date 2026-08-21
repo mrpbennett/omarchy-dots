@@ -34,6 +34,19 @@
           "id": "omarchy.weather"
         },
         {
+          "id": "io.github.sspaeti.timezones",
+          "homeZones": [
+            "Europe/London"
+          ],
+          "zone": [
+            {
+              "label": "NewYork",
+              "shortLabel": "NY",
+              "zone": "America/New_York"
+            }
+          ]
+        },
+        {
           "id": "omarchy.system-update"
         }
       ],

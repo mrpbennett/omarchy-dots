@@ -1,7 +1,7 @@
 [tools]
 argocd = "latest"
 atuin = "latest"
-aws-cli = { version = "latest", symlink_bins = "true"}
+aws-cli = { version = "latest", symlink_bins = "true" }
 claude = "latest"
 codex = "latest"
 curlie = "latest"
@@ -27,3 +27,4 @@ rust = "latest"
 glow = "3.0.0"
 
 "go:github.com/mrpbennett/bucky/cmd/bucky" = "latest"
+"go:github.com/joshmedeski/sesh/v2" = "latest"
