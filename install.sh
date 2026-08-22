@@ -108,7 +108,7 @@ install_omarchy_plugins() {
     "https://github.com/mrpbennett/qs-dusk.git"
     "https://github.com/mrpbennett/qs-herdr-agents.git"
     "https://github.com/mrpbennett/omarchy-sesh.git"
-    "https://github.com/sspaeti/omarchy-timezones-plugin"
+    "https://github.com/sspaeti/omarchy-timezones-plugin.git"
   )
 
   for url in "${plugin_urls[@]}"; do

@@ -26,5 +26,7 @@ ruff = "latest"
 rust = "latest"
 glow = "3.0.0"
 
+# https://github.com/mrpbennett/bucky
 "go:github.com/mrpbennett/bucky/cmd/bucky" = "latest"
+# https://github.com/joshmedeski/sesh
 "go:github.com/joshmedeski/sesh/v2" = "latest"

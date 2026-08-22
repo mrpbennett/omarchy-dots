@@ -6,29 +6,29 @@ return {
   priority = 1000,
   lazy = false,
   ---@type snacks.Config
-  keys = {
-    {
-      "<leader>.",
-      function()
-        require("utils.snacks.scratch").new_scratch({
-          { text = "go" },
-          { text = "html" },
-          { text = "javascript" },
-          { text = "python" },
-          { text = "sql" },
-          { text = "yaml" },
-        })
-      end,
-      desc = "New Scratch (pick filetype)",
-    },
-    {
-      "<leader>S",
-      function()
-        require("utils.snacks.scratch").select_scratch()
-      end,
-      desc = "Select Scratch Buffer",
-    },
-  },
+  -- keys = {
+  --   {
+  --     "<leader>.",
+  --     function()
+  --       require("utils.snacks.scratch").new_scratch({
+  --         { text = "go" },
+  --         { text = "html" },
+  --         { text = "javascript" },
+  --         { text = "python" },
+  --         { text = "sql" },
+  --         { text = "yaml" },
+  --       })
+  --     end,
+  --     desc = "New Scratch (pick filetype)",
+  --   },
+  --   {
+  --     "<leader>S",
+  --     function()
+  --       require("utils.snacks.scratch").select_scratch()
+  --     end,
+  --     desc = "Select Scratch Buffer",
+  --   },
+  -- },
   opts = {
     ---
     dashboard = {
