@@ -5,6 +5,9 @@ vim.opt.mouse = "a"
 vim.opt.swapfile = false
 vim.opt.autoread = true
 
+-- set terminal to use zsh
+vim.opt.shell = "/usr/bin/zsh"
+
 -- stop auto comments
 vim.opt.formatoptions:remove({ "c", "r", "o" })
 
