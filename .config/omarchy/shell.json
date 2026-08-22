@@ -38,10 +38,16 @@
           "homeZones": [
             "Europe/London"
           ],
-          "zone": [
+          "zones": [
             {
-              "label": "NewYork",
-              "shortLabel": "NY",
+              "label": "London",
+              "shortLabel": "LDN",
+              "zone": "",
+              "home": true
+            },
+            {
+              "label": "East Coast",
+              "shortLabel": "NYC",
               "zone": "America/New_York"
             }
           ]
