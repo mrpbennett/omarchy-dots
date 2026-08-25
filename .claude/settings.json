@@ -44,6 +44,9 @@
     "type": "command",
     "command": "bash ~/.claude/statusline.sh"
   },
+  "enabledPlugins": {
+    "mattpocock-skills@claude-plugins-official": true
+  },
   "effortLevel": "medium",
   "skipDangerousModePermissionPrompt": true,
   "theme": "custom:omarchy",
