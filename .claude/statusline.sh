@@ -8,7 +8,7 @@ input=$(cat)
 # separator) rather than @tsv's tab: bash `read` treats tab as IFS
 # whitespace and collapses consecutive delimiters, silently dropping
 # empty fields (e.g. absent vim_mode/session_name shifting later fields).
-IFS=$'\x1f' read -r cwd model_name ctx_pct ctx_tokens vim_mode session_name five_pct week_pct <<EOF
+IFS=$'\x1f' read -r cwd model_name ctx_pct ctx_tokens vim_mode session_name five_pct week_pct total_cost <<EOF
 $(echo "$input" | jq -r '[
   (.workspace.current_dir // .cwd // ""),
   (.model.display_name // ""),
@@ -17,7 +17,8 @@ $(echo "$input" | jq -r '[
   (.vim.mode // ""),
   (.session_name // ""),
   (.rate_limits.five_hour.used_percentage // ""),
-  (.rate_limits.seven_day.used_percentage // "")
+  (.rate_limits.seven_day.used_percentage // ""),
+  (.cost.total_cost_usd // "")
 ] | join("")')
 EOF
 
@@ -60,11 +61,16 @@ if [ -n "$ctx_pct" ] && [ "$ctx_pct" != "null" ]; then
     ctx_color="$GREEN"
   fi
   if [ -n "$ctx_tokens" ] && [ "$ctx_tokens" != "null" ]; then
-    ctx_k=$(awk -v t="$ctx_tokens" 'BEGIN { printf "%.0fk", t/1000 }')
-    parts+=("$(printf "${ctx_color}ctx %s%% / %s tokens${RESET}" "$ctx_int" "$ctx_k")")
-  else
-    parts+=("$(printf "${ctx_color}ctx %s%%${RESET}" "$ctx_int")")
+    ctx_fmt=$(printf "%.0f" "$ctx_tokens" | rev | sed 's/[0-9]\{3\}/&,/g;s/,$//' | rev)
+    parts+=("$(printf "${ctx_color}🔥 %s tokens${RESET}" "$ctx_fmt")")
   fi
+  parts+=("$(printf "${ctx_color}🧠 %s%% used${RESET}" "$ctx_int")")
+fi
+
+# 4b. Session cost
+if [ -n "$total_cost" ] && [ "$total_cost" != "null" ]; then
+  cost_fmt=$(awk -v c="$total_cost" 'BEGIN { printf "%.2f", c }')
+  parts+=("$(printf "${GREEN}💰 \$%s spent${RESET}" "$cost_fmt")")
 fi
 
 # 5. Vim mode (only when present)
