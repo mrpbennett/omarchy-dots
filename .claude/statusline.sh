@@ -4,17 +4,21 @@
 
 input=$(cat)
 
-# Parse all fields in one jq call
-IFS=$'\t' read -r cwd model_name ctx_pct vim_mode session_name five_pct week_pct <<EOF
+# Parse all fields in one jq call. Fields are joined with \x1f (unit
+# separator) rather than @tsv's tab: bash `read` treats tab as IFS
+# whitespace and collapses consecutive delimiters, silently dropping
+# empty fields (e.g. absent vim_mode/session_name shifting later fields).
+IFS=$'\x1f' read -r cwd model_name ctx_pct ctx_tokens vim_mode session_name five_pct week_pct <<EOF
 $(echo "$input" | jq -r '[
   (.workspace.current_dir // .cwd // ""),
   (.model.display_name // ""),
   (.context_window.used_percentage // ""),
+  (.context_window.total_input_tokens // ""),
   (.vim.mode // ""),
   (.session_name // ""),
   (.rate_limits.five_hour.used_percentage // ""),
   (.rate_limits.seven_day.used_percentage // "")
-] | @tsv')
+] | join("")')
 EOF
 
 # Shorten home directory to ~
@@ -48,11 +52,19 @@ parts=()
 # 4. Context window usage
 if [ -n "$ctx_pct" ] && [ "$ctx_pct" != "null" ]; then
   ctx_int=$(printf "%.0f" "$ctx_pct")
-  if   [ "$ctx_int" -ge 80 ]; then ctx_color="$RED"
-  elif [ "$ctx_int" -ge 50 ]; then ctx_color="$YELLOW"
-  else                              ctx_color="$GREEN"
+  if [ "$ctx_int" -ge 80 ]; then
+    ctx_color="$RED"
+  elif [ "$ctx_int" -ge 50 ]; then
+    ctx_color="$YELLOW"
+  else
+    ctx_color="$GREEN"
   fi
-  parts+=("$(printf "${ctx_color}ctx %s%%${RESET}" "$ctx_int")")
+  if [ -n "$ctx_tokens" ] && [ "$ctx_tokens" != "null" ]; then
+    ctx_k=$(awk -v t="$ctx_tokens" 'BEGIN { printf "%.0fk", t/1000 }')
+    parts+=("$(printf "${ctx_color}ctx %s%% / %s tokens${RESET}" "$ctx_int" "$ctx_k")")
+  else
+    parts+=("$(printf "${ctx_color}ctx %s%%${RESET}" "$ctx_int")")
+  fi
 fi
 
 # 5. Vim mode (only when present)
@@ -70,7 +82,10 @@ if [ -n "$week_pct" ] && [ "$week_pct" != "null" ]; then
   rate_parts+=("$(printf "7d:%.0f%%" "$week_pct")")
 fi
 if [ ${#rate_parts[@]} -gt 0 ]; then
-  rate_str=$(IFS=' '; echo "${rate_parts[*]}")
+  rate_str=$(
+    IFS=' '
+    echo "${rate_parts[*]}"
+  )
   parts+=("$(printf "${YELLOW}%s${RESET}" "$rate_str")")
 fi
 
