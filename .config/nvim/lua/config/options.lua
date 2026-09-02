@@ -13,7 +13,7 @@ vim.opt.formatoptions:remove({ "c", "r", "o" })
 
 -- python lazyvim
 vim.g.lazyvim_python_lsp = "ty"
-vim.g.lazyvim_python_ruff = "ruff"
+-- set by lang.python vim.g.lazyvim_python_ruff = "ruff"
 
 -- disable the option to require prettier config file
 vim.g.lazyvim_prettier_needs_config = false
