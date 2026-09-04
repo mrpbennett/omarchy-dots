@@ -76,6 +76,7 @@ next_workspace = ["prefix+shift+n", "alt+down"]
 
 [ui]
 accent = "blue"
+sidebar_collapsed_mode = "hidden"
 
 # tmux drew single-line dividers between adjacent panes and no outer frame
 pane_gaps = true
