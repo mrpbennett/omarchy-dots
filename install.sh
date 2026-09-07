@@ -109,11 +109,15 @@ install_omarchy_plugins() {
     "https://github.com/mrpbennett/qs-herdr-agents.git"
     "https://github.com/mrpbennett/omarchy-sesh.git"
     "https://github.com/sspaeti/omarchy-timezones-plugin.git"
+    "https://github.com/AksharP5/omarchy-radio-atlas.git"
   )
 
   for url in "${plugin_urls[@]}"; do
     omarchy plugin add "$url" --enable --yes || true
   done
+
+  # disable default lock screen for a custom one
+  omarchy plugin disable omarchy.lock
 
 }
 
@@ -144,7 +148,7 @@ stow_dotfiles() {
 omarchy_update_mise_and_dev() {
   omarchy update mise
 
-  # install krew: plugin manager for kctl
+  # install krew: plugin manager for kubectl
   (
     set -x
     cd "$(mktemp -d)" &&
@@ -158,13 +162,18 @@ omarchy_update_mise_and_dev() {
 }
 
 omarchy_final_touches() {
-  omarchy theme set "Catppuccin Latte"
-
   # adding yazi plugins
   # adding duckdb to view csv / table data in yazi
   ya pkg add wylie102/duckdb
   curl https://install.duckdb.org | sh
 
+  # enabling my custom lock screen
+  omarchy plugin enable omarchy-custom.lock
+
+  # install terminal browser
+  curl -fsSL https://terminal-browser.sh/install | bash
+
+  # restart shell
   omarchy restart shell
 }
 

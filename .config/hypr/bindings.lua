@@ -52,7 +52,7 @@ hl.unbind("PRINT")
 hl.unbind("F12")
 hl.unbind("ALT + SHIFT + 4")
 
-o.bind("SUPER + ALT + 3", "Screenshot", "omasnap")
+o.bind("SHIFT + ALT + 4", "Screenshot", "omasnap")
 
 hl.layer_rule({
 	match = { namespace = "^omasnap$" },

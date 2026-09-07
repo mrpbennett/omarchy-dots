@@ -63,10 +63,7 @@
           "id": "omarchy.tray"
         },
         {
-          "id": "io.github.majkelll.omarchy-docker"
-        },
-        {
-          "id": "mrpbennett.sesh"
+          "id": "akshar.radio-atlas"
         },
         {
           "id": "mrpbennett.herdr-agents"
@@ -105,5 +102,18 @@
       ]
     }
   },
-  "plugins": []
+  "plugins": [
+    {
+      "id": "pb.lock"
+    },
+    {
+      "id": "omarchy-custom.lock"
+    }
+  ],
+  "disabledPlugins": [
+    "omarchy.lock"
+  ],
+  "cloneSourceRestores": [
+    "pb.lock"
+  ]
 }

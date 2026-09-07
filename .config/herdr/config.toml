@@ -163,3 +163,6 @@ command = "btop"
 description = "run btop"
 width = "90%"
 height = "90%"
+
+[experimental]
+kitty_graphics = true

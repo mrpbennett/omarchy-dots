@@ -7,7 +7,6 @@ return {
         schema_width = 40,
         saved_query_dirs = {
           { work = "/home/pb/Work/pulsepoint/pbennett-monorepo/sql" },
-          { omarchysesh = "/home/pb/Projects/omarchy-sesh/sql" },
         },
 
         -- keymaps

@@ -67,6 +67,11 @@ alias vpn='omarchy-fortivpn start --push'
 alias svpn="omarchy-fortivpn stop"
 alias osh="omarchy-sesh"
 
+# Terminal Browser
+alias tb='terminal-browser'
+alias tbo='terminal-browser open $1'
+alias tbl='terminal-browser ls'
+
 # UV ---
 alias ui="uv init"
 alias ua="uv add"
