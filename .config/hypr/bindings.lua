@@ -22,6 +22,7 @@
 
 -- Disable a default binding without replacing it.
 -- hl.unbind("SUPER + SHIFT + B")
+hl.unbind("CTRL + ALT + H")
 
 -- Dusk mode switching (mrpbennett.dusk auto theme).
 o.bind("SUPER + SHIFT + ALT + Z", "Dusk: Auto mode", "omarchy-auto-theme solar")

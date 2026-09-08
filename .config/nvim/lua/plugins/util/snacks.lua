@@ -30,10 +30,12 @@ return {
   --   },
   -- },
   opts = {
+    scroll = {
+      enabled = false,
+    },
     ---
     dashboard = {
       enabled = true,
-      example = "compact_files",
       preset = {
         header = [[
  __         ______     ______     __  __     __   __   __     __    __    

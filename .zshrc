@@ -45,6 +45,7 @@ alias dr-omarchy-dots="stow --dir="$HOME/Projects" --target="$HOME" --no-folding
 
 alias e="exit"
 alias v="nvim"
+alias nn='NVIM_APPNAME="nvim-native" nvim' # native nvim setup test
 alias h="herdr"
 alias bt="btop"
 alias cat="bat"
