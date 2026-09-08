@@ -107,7 +107,6 @@ install_omarchy_plugins() {
     "https://github.com/mrpbennett/qs-fortivpn.git"
     "https://github.com/mrpbennett/qs-dusk.git"
     "https://github.com/mrpbennett/qs-herdr-agents.git"
-    "https://github.com/mrpbennett/omarchy-sesh.git"
     "https://github.com/sspaeti/omarchy-timezones-plugin.git"
     "https://github.com/AksharP5/omarchy-radio-atlas.git"
   )
@@ -172,6 +171,9 @@ omarchy_final_touches() {
 
   # install terminal browser
   curl -fsSL https://terminal-browser.sh/install | bash
+
+  # set global font size
+  omarchy display text size 13
 
   # restart shell
   omarchy restart shell

@@ -17,8 +17,15 @@ return {
   init = function()
     LazyVim.on_load("nvim-lint", function()
       local lint = require("lint")
-      lint.linters.yamllint.cwd = function()
-        return vim.fs.root(0, { ".yamllint", ".git" }) or vim.fn.getcwd()
+      -- lint.linters entries can be a function returning a fresh linter table; this is the
+      -- only way to get a per-invocation `cwd`, since nvim-lint reads linter.cwd as a plain
+      -- string (unlike `args`, it is never function-evaluated).
+      local yamllint = lint.linters.yamllint
+      lint.linters.yamllint = function()
+        local base = type(yamllint) == "function" and yamllint() or yamllint
+        return vim.tbl_extend("force", base, {
+          cwd = vim.fs.root(0, { ".yamllint", ".git" }) or vim.fn.getcwd(),
+        })
       end
 
       -- Match conform's sqruff config/dialect so lint diagnostics agree with fix-on-save.
