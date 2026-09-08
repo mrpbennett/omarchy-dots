@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-REPO_DIR="$HOME/.dotfiles/omarchy-dots"
+REPO_DIR="$HOME/.dotfiles"
 BACKUP_DIR="$HOME/.local/share/omarchy-dots-backup"
 
 cat <<'EOF'

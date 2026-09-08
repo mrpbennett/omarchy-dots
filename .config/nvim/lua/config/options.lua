@@ -4,6 +4,7 @@ require("config.remote_clipboard").setup()
 vim.opt.mouse = "a"
 vim.opt.swapfile = false
 vim.opt.autoread = true
+vim.opt.inccommand = "split" -- better search window
 
 -- set terminal to use zsh
 vim.opt.shell = "/usr/bin/zsh"

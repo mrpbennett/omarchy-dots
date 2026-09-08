@@ -28,7 +28,7 @@ curl -fsSL https://raw.githubusercontent.com/mrpbennett/omarchy-dots/main/instal
 
 The installer will:
 
-1. Clone the repo into `~/.dotfiles/omarchy-dots`
+1. Clone the repo into `~/.dotfiles`
 2. Install required packages via `omarchy` (stow, bitwarden, ghostty, zsh)
 3. Remove stock webapps and default packages you don't need
 4. Install Omarchy plugins (qs-fortivpn, radio-atlas)

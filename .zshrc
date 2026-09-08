@@ -32,15 +32,15 @@ zle -N zle-line-init
 
 # Stow ---
 # add new files to stow
-# alias re-omarchy-dots="stow --dir="$HOME/.dotfiles" --target="$HOME" --restow omarchy-dots"
+# alias re-omarchy-dots="stow --dir="$HOME" --target="$HOME" --restow .dotfiles"
 alias re-omarchy-dots="stow --dir="$HOME/Projects" --target="$HOME" --no-folding --restow omarchy-dots"
 
 # adopt new files to stow
-# alias ad-omarchy-dots="stow --dir="$HOME/.dotfiles" --target="$HOME" --adopt omarchy-dots"
+# alias ad-omarchy-dots="stow --dir="$HOME" --target="$HOME" --adopt .dotfiles"
 alias ad-omarchy-dots="stow --dir="$HOME/Projects" --target="$HOME" --no-folding --adopt omarchy-dots"
 
 # dry run stow
-# alias dr-omarchy-dots="stow --dir="$HOME/.dotfiles" --target="$HOME" --restow --simulate omarchy-dots"
+# alias dr-omarchy-dots="stow --dir="$HOME" --target="$HOME" --restow --simulate .dotfiles"
 alias dr-omarchy-dots="stow --dir="$HOME/Projects" --target="$HOME" --no-folding --restow --simulate omarchy-dots"
 
 alias e="exit"
