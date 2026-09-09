@@ -2,7 +2,7 @@
 
 ## GitHub Policy
 
-**READ-ONLY** — Do not create, edit, or push anything to GitHub. No PRs, no commits, no issues. View/read operations only. This applies to `gh` CLI and any GitHub MCP tools. User will update this policy if write access is ever needed.
+Agents may prepare commits and pull requests (drafting commit messages, staging changes, writing PR descriptions), but the **user must give explicit final approval before any commit, push, or PR is actually created**. Do not run `git commit`, `git push`, `gh pr create`, or equivalent write operations — via `gh` CLI or any GitHub MCP tools — until the user has reviewed and approved that specific action. No other GitHub write operations (issues, comments, merges, etc.) without explicit approval either. Read/view operations remain unrestricted.
 
 ## File & Output Conventions
 
