@@ -66,7 +66,9 @@ clean_omarchy() {
   )
 
   for dir in "${stale_config_directories[@]}"; do
-    [[ -d "$HOME/.config/$dir" ]] && rm -r "$HOME/.config/$dir"
+    if [[ -d "$HOME/.config/$dir" ]]; then
+      rm -r "$HOME/.config/$dir"
+    fi
   done
 
 }
@@ -115,26 +117,59 @@ install_omarchy_plugins() {
 
 # symlink the dotfiles repo into $HOME (repo root mirrors $HOME layout)
 stow_dotfiles() {
-  local stow_dir package conflict
+  local stow_dir package conflict stow_bin config
+  local required_configs=(.zshrc .config/starship.toml)
+
+  if ! stow_bin=$(command -v stow); then
+    echo "ERROR: GNU Stow was not found on PATH. Install it with: omarchy pkg add stow" >&2
+    return 1
+  fi
+  echo "Stow executable: $stow_bin"
+  if ! stow --version; then
+    echo "ERROR: Stow is installed but cannot run successfully." >&2
+    return 1
+  fi
+
+  echo "Stow source: $DOTFILES_DIR"
+  echo "Stow target: $HOME"
+  for config in "${required_configs[@]}"; do
+    if [[ ! -f "$DOTFILES_DIR/$config" ]]; then
+      echo "ERROR: Expected repo config is missing: $DOTFILES_DIR/$config" >&2
+      return 1
+    fi
+  done
+
   stow_dir=$(dirname "$DOTFILES_DIR")
   package=$(basename "$DOTFILES_DIR")
 
   mkdir -p "$BACKUP_DIR"
 
-  # dry-run first: back up only the exact files/dirs stow reports as real
-  # (non-symlink) conflicts, so unrelated files sitting alongside them are
-  # left alone and the repo's version wins on the real stow run
+  # dry-run first: back up only the exact paths stow reports as conflicts,
+  # including foreign/broken symlinks, leaving unrelated files alone.
+  # Move links themselves and retain older backups on repeated runs.
   while IFS= read -r conflict; do
-    [[ -e "$HOME/$conflict" && ! -L "$HOME/$conflict" ]] || continue
+    [[ -e "$HOME/$conflict" || -L "$HOME/$conflict" ]] || continue
     mkdir -p "$(dirname "$BACKUP_DIR/$conflict")"
-    mv "$HOME/$conflict" "$BACKUP_DIR/$conflict"
+    mv --backup=numbered --no-target-directory -- "$HOME/$conflict" "$BACKUP_DIR/$conflict"
     echo "backed up existing $HOME/$conflict -> $BACKUP_DIR/$conflict"
   done < <(stow --dir="$stow_dir" --target="$HOME" --no-folding --simulate --verbose=2 "$package" 2>&1 |
     sed -n \
       -e 's/^CONFLICT when stowing [^:]*: cannot stow .* over existing target \(.*\) since neither a link nor a directory.*/\1/p' \
       -e 's/^CONFLICT when stowing [^:]*: existing target is not owned by stow: \(.*\)/\1/p')
 
-  stow --dir="$stow_dir" --target="$HOME" --no-folding --restow --verbose "$package"
+  if ! stow --dir="$stow_dir" --target="$HOME" --no-folding --restow --verbose "$package"; then
+    echo "ERROR: Stow failed to link dotfiles from $DOTFILES_DIR into $HOME." >&2
+    return 1
+  fi
+
+  for config in "${required_configs[@]}"; do
+    if [[ ! -L "$HOME/$config" || ! "$HOME/$config" -ef "$DOTFILES_DIR/$config" ]]; then
+      echo "ERROR: Stow finished, but $HOME/$config is not linked to $DOTFILES_DIR/$config." >&2
+      return 1
+    fi
+    echo "Verified: $HOME/$config -> $DOTFILES_DIR/$config"
+  done
+  echo "Stow completed; .zshrc and Starship config links verified."
 }
 
 omarchy_update_mise_and_dev() {
