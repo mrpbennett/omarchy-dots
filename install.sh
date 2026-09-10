@@ -18,9 +18,6 @@ cat <<'EOF'
 
 EOF
 
-# Update omarchy - before actioning anything else
-omarchy update
-
 # Resolve the dotfiles directory: prefer the repo beside this script, fall back
 # to REPO_DIR, and clone from GitHub if neither exists yet.
 DOTFILES_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]:-$REPO_DIR}")" 2>/dev/null && pwd || true)
@@ -52,7 +49,6 @@ clean_omarchy() {
   # standard packages i want to remove
   packages=(
     "alacritty"
-    "foot"
     "kitty"
     "kdenlive"
     "pinta"
@@ -66,15 +62,12 @@ clean_omarchy() {
   # remove stale config dirs
   stale_config_directories=(
     "alacritty"
-    "foot"
     "kitty"
   )
 
   for dir in "${stale_config_directories[@]}"; do
     [[ -d "$HOME/.config/$dir" ]] && rm -r "$HOME/.config/$dir"
   done
-
-  rm "$HOME/.local/share/applications/foot.desktop"
 
 }
 
@@ -161,16 +154,8 @@ omarchy_update_mise_and_dev() {
 }
 
 omarchy_final_touches() {
-  # adding yazi plugins
-  # adding duckdb to view csv / table data in yazi
-  # ya pkg add wylie102/duckdb
-  # curl https://install.duckdb.org | sh
-
   # enabling my custom lock screen
   omarchy plugin enable omarchy-custom.lock
-
-  # install terminal browser
-  curl -fsSL https://terminal-browser.sh/install | bash
 
   # set global font size
   omarchy display text size 13
