@@ -31,17 +31,17 @@ zle -N zle-line-init
 # CUSTOM aliases ---
 
 # Stow ---
+# Resolve this file's repo directory, following the ~/.zshrc symlink.
+OMARCHY_DOTS_DIR=${${(%):-%x}:A:h}
+
 # add new files to stow
-# alias re-omarchy-dots="stow --dir="$HOME" --target="$HOME" --restow .dotfiles"
-alias re-omarchy-dots="stow --dir="$HOME/Projects" --target="$HOME" --no-folding --restow omarchy-dots"
+alias re-omarchy-dots='stow --dir="$OMARCHY_DOTS_DIR" --target="$HOME" --no-folding --restow .'
 
 # adopt new files to stow
-# alias ad-omarchy-dots="stow --dir="$HOME" --target="$HOME" --adopt .dotfiles"
-alias ad-omarchy-dots="stow --dir="$HOME/Projects" --target="$HOME" --no-folding --adopt omarchy-dots"
+alias ad-omarchy-dots='stow --dir="$OMARCHY_DOTS_DIR" --target="$HOME" --no-folding --adopt .'
 
 # dry run stow
-# alias dr-omarchy-dots="stow --dir="$HOME" --target="$HOME" --restow --simulate .dotfiles"
-alias dr-omarchy-dots="stow --dir="$HOME/Projects" --target="$HOME" --no-folding --restow --simulate omarchy-dots"
+alias dr-omarchy-dots='stow --dir="$OMARCHY_DOTS_DIR" --target="$HOME" --no-folding --restow --simulate .'
 
 alias e="exit"
 alias v="nvim"

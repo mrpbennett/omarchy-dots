@@ -139,8 +139,10 @@ stow_dotfiles() {
     fi
   done
 
-  stow_dir=$(dirname "$DOTFILES_DIR")
-  package=$(basename "$DOTFILES_DIR")
+  # Stow the repo itself as package ".". Using its parent as --dir makes
+  # --dir equal --target for ~/.dotfiles, which Stow skips with a warning.
+  stow_dir=$DOTFILES_DIR
+  package=.
 
   mkdir -p "$BACKUP_DIR"
 
