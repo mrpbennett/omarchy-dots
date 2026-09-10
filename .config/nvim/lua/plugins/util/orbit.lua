@@ -1,6 +1,7 @@
 return {
   {
-    dir = "/home/pb/Projects/orbit.nvim",
+    "mrpbennett/orbit.nvim",
+    --dir = "/home/pb/Projects/orbit.nvim",
     config = function()
       require("orbit").setup({
         winbar = false,

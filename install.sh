@@ -197,6 +197,9 @@ omarchy_final_touches() {
   # set global font size
   omarchy display text size 13
 
+  # set theme
+  omarchy theme set Catppuccin
+
   # restart shell
   omarchy restart shell
 }
