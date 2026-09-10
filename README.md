@@ -27,6 +27,12 @@ curl -fsSL https://raw.githubusercontent.com/mrpbennett/omarchy-dots/main/instal
   bash omarchy-dots-install.sh
 ```
 
+or 
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/mrpbennett/omarchy-dots/main/install.sh | bash
+```
+
 Download the script before running it so Omarchy's interactive updater and
 password prompts can use terminal input. Piping the script into Bash can cause
 the updater to consume and echo the remaining installer code instead.
