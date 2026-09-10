@@ -163,8 +163,8 @@ omarchy_update_mise_and_dev() {
 omarchy_final_touches() {
   # adding yazi plugins
   # adding duckdb to view csv / table data in yazi
-  ya pkg add wylie102/duckdb
-  curl https://install.duckdb.org | sh
+  # ya pkg add wylie102/duckdb
+  # curl https://install.duckdb.org | sh
 
   # enabling my custom lock screen
   omarchy plugin enable omarchy-custom.lock
