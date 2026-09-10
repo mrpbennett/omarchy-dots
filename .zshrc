@@ -73,6 +73,9 @@ alias tb='terminal-browser'
 alias tbo='terminal-browser open $1'
 alias tbl='terminal-browser ls'
 
+# VM ---
+alias rdev="TERM=xterm-256color ssh pb@rdev"
+
 # UV ---
 alias ui="uv init"
 alias ua="uv add"

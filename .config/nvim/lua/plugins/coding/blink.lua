@@ -20,7 +20,7 @@ return {
       appearance = {
         nerd_font_variant = "mono",
       },
-      compeltion = {
+      completion = {
         menu = {
           draw = {
             columns = {
