@@ -1,6 +1,12 @@
-theme = "auto"
+theme = "catppuccin-mocha"
 mode = "split"
 vcs = "git"
 line_numbers = true
 exclude_untracked = false
 wrap_line = false
+wrap_lines = false
+hunk_headers = true
+menu_bar = true
+agent_notes = false
+copy_decorations = false
+cursor_line = "row"
