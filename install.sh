@@ -79,6 +79,7 @@ install_required_packages() {
     "stow"
     "bitwarden"
     "bitwarden-cli"
+    "openfortivpn"
   )
 
   for package in "${packages[@]}"; do

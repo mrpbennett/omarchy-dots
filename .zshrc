@@ -131,6 +131,11 @@ function b64d() {
   echo -n "$1" | base64 -d | wl-copy
 }
 
+dotfiles(){
+  cd "$HOME/.dotfiles" || return
+  nvim .
+}
+
 function ts() {
   {
     exec </dev/tty
