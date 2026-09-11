@@ -75,6 +75,7 @@ alias tbl='terminal-browser ls'
 
 # VM ---
 alias rdev="TERM=xterm-256color ssh pb@rdev"
+alias pi-node-2="TERM=xterm-256color ssh pi-node-2"
 
 # UV ---
 alias ui="uv init"

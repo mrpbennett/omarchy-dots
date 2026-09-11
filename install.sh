@@ -189,6 +189,9 @@ omarchy_update_mise_and_dev() {
       tar zxvf "${KREW}.tar.gz" &&
       ./"${KREW}" install krew
   )
+  
+  # install oidc-login
+  kubectl krew install oidc-login
 }
 
 omarchy_final_touches() {

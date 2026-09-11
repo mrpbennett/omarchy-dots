@@ -27,6 +27,9 @@ glow = "3.0.0"
 "go:github.com/mrpbennett/bucky/cmd/bucky" = "latest"
 # https://github.com/joshmedeski/sesh
 "go:github.com/joshmedeski/sesh/v2" = "latest"
+codex = "latest"
+opencode = "latest"
+claude = "latest"
 
 [settings.upgrade]
 auto_prune = false
