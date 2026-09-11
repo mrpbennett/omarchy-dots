@@ -75,3 +75,9 @@
     # Cleanup
     gone = "!git fetch -p && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs git branch -D"
 	  tree = log --graph --oneline --decorate --all
+[credential "https://github.com"]
+	helper = 
+	helper = !/home/pb/.local/share/mise/installs/gh/2.100.0/gh_2.100.0_linux_amd64/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/home/pb/.local/share/mise/installs/gh/2.100.0/gh_2.100.0_linux_amd64/bin/gh auth git-credential
