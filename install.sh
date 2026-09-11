@@ -97,6 +97,33 @@ setup_zsh() {
   omarchy-setup-zsh
 }
 
+# use the machine's GitHub key, whose non-standard filename SSH will not
+# discover automatically
+setup_ssh() {
+  local ssh_dir="$HOME/.ssh"
+  local ssh_config="$ssh_dir/config"
+  local ssh_key="$ssh_dir/omarchy-pc"
+
+  install -d -m 700 "$ssh_dir"
+
+  if [[ ! -f "$ssh_key" ]]; then
+    ssh-keygen -t ed25519 -f "$ssh_key" -C "omarchy-pc" -N ""
+  fi
+
+  touch "$ssh_config"
+  chmod 600 "$ssh_config"
+
+  if ! grep -Fq "IdentityFile ~/.ssh/omarchy-pc" "$ssh_config"; then
+    cat >>"$ssh_config" <<'EOF'
+
+Host github.com
+  User git
+  IdentityFile ~/.ssh/omarchy-pc
+  IdentitiesOnly yes
+EOF
+  fi
+}
+
 # install omarchy shell plugins from their git remotes
 install_omarchy_plugins() {
   plugin_urls=(
@@ -214,6 +241,7 @@ omarchy_final_touches() {
 install_required_packages
 clean_omarchy
 setup_zsh
+setup_ssh
 install_omarchy_plugins
 stow_dotfiles
 omarchy_update_mise_and_dev
