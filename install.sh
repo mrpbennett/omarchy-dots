@@ -76,10 +76,11 @@ clean_omarchy() {
 # install packages that aren't default
 install_required_packages() {
   packages=(
-    "stow"
     "bitwarden"
     "bitwarden-cli"
     "openfortivpn"
+    "stow"
+    "yamllint"
   )
 
   for package in "${packages[@]}"; do
@@ -216,7 +217,7 @@ omarchy_update_mise_and_dev() {
       tar zxvf "${KREW}.tar.gz" &&
       ./"${KREW}" install krew
   )
-  
+
   # install oidc-login
   kubectl krew install oidc-login
 
