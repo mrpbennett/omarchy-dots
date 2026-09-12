@@ -23,13 +23,6 @@ a curated set of CLI tools.
 ## Install
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/mrpbennett/omarchy-dots/main/install.sh -o omarchy-dots-install.sh &&
-  bash omarchy-dots-install.sh
-```
-
-or 
-
-```bash
 curl -fsSL https://raw.githubusercontent.com/mrpbennett/omarchy-dots/main/install.sh | bash
 ```
 
