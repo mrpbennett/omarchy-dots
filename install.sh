@@ -219,6 +219,9 @@ omarchy_update_mise_and_dev() {
   
   # install oidc-login
   kubectl krew install oidc-login
+
+  # install gh-dash
+  gh extension install dlvhdr/gh-dash
 }
 
 omarchy_final_touches() {

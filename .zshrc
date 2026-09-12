@@ -51,6 +51,9 @@ alias bt="btop"
 alias cat="bat"
 alias curl="curlie"
 
+alias hud="hunk diff"
+alias hul="hunk log"
+
 alias lzg='lazygit'
 alias lzd='lazydocker'
 
@@ -58,8 +61,8 @@ alias mi="mise install"
 alias mup="mise upgrade"
 
 alias oc="opencode"
-alias rtui="redis-tui"
 
+# Common Dirs ---
 alias dl="cd ~/Downloads/"
 alias dev="cd ~/Projects/"
 alias devp="cd ~/Work/pulsepoint/"
