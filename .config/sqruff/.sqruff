@@ -5,10 +5,11 @@ max_line_length = 120
 exclude_rules = LT01,LT05,LT12,AM06
 
 [sqruff:indentation]
-indent_unit = space
 tab_space_size = 4
-indented_using_on = False
+indent_unit = space
 implicit_indents = allow
+indented_then = false
+indented_using_on = false
 
 [sqruff:layout:type:alias_expression]
 spacing_before = align
@@ -29,3 +30,9 @@ extended_capitalisation_policy = lower
 
 [sqruff:rules:capitalisation.types]
 extended_capitalisation_policy = lower
+
+[sqruff:rules:references.keywords]
+ignore_words = "domain"
+
+[sqruff:rules:structure.subquery]
+forbid_subquery_in = "both"

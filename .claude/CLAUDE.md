@@ -43,6 +43,10 @@ When modifying existing configuration or keybinding systems, **extend the existi
 - Offload research, exploration, and parallel analysis to subagents.
 - One task per subagent for focused execution.
 
+### Kuberentes
+
+- You only ever have access to the `k3s-rpi` context. Any other context requires permission to use.
+
 ## Verification Before Done
 
 - Never mark a task complete without proving it works.
