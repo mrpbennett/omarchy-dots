@@ -15,6 +15,7 @@ uv = "latest"
 worktrunk = "latest"
 yazi = '26.8.15'
 yq = "latest"
+vault = "latest"
 
 lua = "latest"
 go = "latest"
@@ -24,13 +25,16 @@ ruff = "latest"
 rust = "latest"
 glow = "3.0.0"
 
+codex = "latest"
+opencode = "latest"
+claude = "latest"
+
+# mictrsoft sqlcmd
+"github:microsoft/go-sqlcmd" = "latest"
 # https://github.com/mrpbennett/bucky
 "go:github.com/mrpbennett/bucky/cmd/bucky" = "latest"
 # https://github.com/joshmedeski/sesh
 "go:github.com/joshmedeski/sesh/v2" = "latest"
-codex = "latest"
-opencode = "latest"
-claude = "latest"
 
 [settings.upgrade]
 auto_prune = false

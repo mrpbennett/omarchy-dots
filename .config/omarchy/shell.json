@@ -108,6 +108,9 @@
     },
     {
       "id": "omarchy-custom.lock"
+    },
+    {
+      "id": "data-goblin.fileblade"
     }
   ],
   "disabledPlugins": [

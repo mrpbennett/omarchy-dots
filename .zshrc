@@ -28,6 +28,10 @@ zle -N zle-line-init
 
 # VIM MODE END ---
 #
+
+# EXPORTS ---
+export VAULT_ADDR="http://192.168.7.14:8200"
+
 # CUSTOM aliases ---
 
 # Stow ---
@@ -154,3 +158,4 @@ function ts() {
 
 # work related items ---
 source "$HOME/pulsepoint.sh"
+source "$HOME/secrets.sh"
