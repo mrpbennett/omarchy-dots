@@ -81,7 +81,6 @@ install_required_packages() {
     "openfortivpn"
     "nfs-utils"
     "stow"
-    "yamllint"
   )
 
   for package in "${packages[@]}"; do
@@ -130,7 +129,6 @@ EOF
 install_omarchy_plugins() {
   plugin_urls=(
     "https://github.com/mrpbennett/qs-fortivpn.git"
-    "https://github.com/mrpbennett/qs-dusk.git"
     "https://github.com/mrpbennett/qs-herdr-agents.git"
     "https://github.com/sspaeti/omarchy-timezones-plugin.git"
     "https://github.com/AksharP5/omarchy-radio-atlas.git"

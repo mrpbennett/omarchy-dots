@@ -3,7 +3,7 @@ dialect = tsql
 rules = core,LT03,LT09
 output_line_length = 120
 max_line_length = 120
-exclude_rules = LT01,LT05,LT12,AM06,CP02
+exclude_rules = LT05,LT12,AM06,CP02
 
 [sqruff:indentation]
 tab_space_size = 4
