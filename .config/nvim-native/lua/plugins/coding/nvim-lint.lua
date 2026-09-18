@@ -5,5 +5,4 @@ vim.pack.add {
 require("lint").linters_by_ft = {
   python = { "ruff" },
   sql = { "sqruff" },
-
 }

@@ -72,15 +72,3 @@ opt.virtualedit = "block"          -- Allow cursor to move where there is no tex
 opt.wildmode = "longest:full,full" -- Command-line completion mode
 opt.winminwidth = 5                -- Minimum window width
 opt.wrap = false                   -- Disable line wrap
-
---[[
-	api options
---]]
-
--- better yanking highlighting
-api.nvim_create_autocmd("TextYankPost", {
-  desc = "Higlight when yanking (copying) text",
-  callback = function()
-    vim.hl.on_yank()
-  end
-})

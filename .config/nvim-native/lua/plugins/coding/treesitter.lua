@@ -4,29 +4,16 @@ vim.pack.add {
 }
 
 local ensure_installed = {
-  "bash",
-  "c",
-  "diff",
-  "html",
-  "javascript",
-  "jsdoc",
-  "json",
-  "lua",
-  "luadoc",
-  "luap",
-  "markdown",
-  "markdown_inline",
-  "printf",
-  "python",
-  "query",
-  "regex",
-  "toml",
-  "tsx",
-  "typescript",
-  "vim",
-  "vimdoc",
-  "xml",
-  "yaml",
+  -- go
+  "go",
+  "gomod",
+  "gowork",
+  "gosum",
+  -- python
+  "ninja",
+  "rst",
+  -- sql
+  "sql"
 }
 
 require("nvim-treesitter").install(ensure_installed)

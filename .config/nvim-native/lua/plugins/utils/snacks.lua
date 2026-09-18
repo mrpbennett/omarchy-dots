@@ -4,22 +4,22 @@ vim.pack.add({
 
 require("snacks").setup({
   bigfile = { enabled = true },
-  --   dashboard = {
-  --     enabled = true,
-  --     preset = {
-  --       header = [[
-  --  __   __     __   __   __     __    __
-  -- /\ "-.\ \   /\ \ / /  /\ \   /\ "-./  \
-  -- \ \ \-.  \  \ \ \'/   \ \ \  \ \ \-./\ \
-  --  \ \_\\"\_\  \ \__|    \ \_\  \ \_\ \ \_\
-  --   \/_/ \/_/   \/_/      \/_/   \/_/  \/_/
-  -- ]],
-  --     },
-  --     sections = {
-  --       { section = "header" },
-  --       { section = "keys",  gap = 1, padding = 1 },
-  --     },
-  --   },
+  dashboard = {
+    enabled = true,
+    preset = {
+      header = [[
+ __   __     __   __   __     __    __
+/\ "-.\ \   /\ \ / /  /\ \   /\ "-./  \
+\ \ \-.  \  \ \ \'/   \ \ \  \ \ \-./\ \
+ \ \_\\"\_\  \ \__|    \ \_\  \ \_\ \ \_\
+  \/_/ \/_/   \/_/      \/_/   \/_/  \/_/
+   ]],
+    },
+    sections = {
+      { section = "header" },
+      { section = "keys",  gap = 1, padding = 1 },
+    },
+  },
   explorer = { enabled = true },
   indent = { enabled = true },
   input = { enabled = true },

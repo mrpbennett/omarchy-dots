@@ -2,10 +2,9 @@
 require("plugins.coding.blink")
 require("plugins.coding.conform")
 require("plugins.coding.friendly-snippets")
-require("plugins.coding.mason")
 require("plugins.coding.mini-pairs")
 require("plugins.coding.nvim-lint")
-require("plugins.coding.nvim-lspconfig")
+require("plugins.coding.lsp")
 require("plugins.coding.treesitter")
 
 -- ui
