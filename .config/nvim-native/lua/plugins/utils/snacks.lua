@@ -27,7 +27,14 @@ require("snacks").setup({
     enabled = true,
     timeout = 3000,
   },
-  picker = { enabled = true },
+  picker = { 
+    enabled = true, 
+    exclude = {".git", ".DS_Store"}, 
+    sources = {
+    explorer = {
+      ignored = true, hidden = true
+    }
+  }},
   quickfile = { enabled = true },
   scope = { enabled = true },
   scroll = { enabled = true },

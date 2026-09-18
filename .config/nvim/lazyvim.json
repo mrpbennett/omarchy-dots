@@ -2,6 +2,7 @@
   "extras": [
     "lazyvim.plugins.extras.ai.sidekick",
     "lazyvim.plugins.extras.coding.luasnip",
+    "lazyvim.plugins.extras.dap.core",
     "lazyvim.plugins.extras.editor.aerial",
     "lazyvim.plugins.extras.editor.neo-tree",
     "lazyvim.plugins.extras.editor.snacks_explorer",
@@ -14,7 +15,7 @@
     "lazyvim.plugins.extras.lang.python",
     "lazyvim.plugins.extras.lang.sql",
     "lazyvim.plugins.extras.lang.toml",
-    "lazyvim.plugins.extras.lang.typescript.vtsls",
+    "lazyvim.plugins.extras.lang.typescript",
     "lazyvim.plugins.extras.lang.yaml"
   ],
   "install_version": 8,

@@ -1,6 +1,7 @@
 -- coding
 require("plugins.coding.blink")
 require("plugins.coding.conform")
+require("plugins.coding.dap")
 require("plugins.coding.friendly-snippets")
 require("plugins.coding.mini-pairs")
 require("plugins.coding.nvim-lint")
@@ -16,6 +17,7 @@ require('plugins.ui.mini-notify')
 -- util
 require("plugins.utils.oil")
 require("plugins.utils.orbit")
+require('plugins.utils.flash')
 require("plugins.utils.snacks")
 require("plugins.utils.trouble")
 require("plugins.utils.which-key")

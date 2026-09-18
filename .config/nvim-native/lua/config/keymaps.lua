@@ -1,8 +1,5 @@
 local map = vim.keymap.set
 
--- oil.nvim
-map("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
-
 -- better up/down
 map({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr = true, silent = true })
 map({ "n", "x" }, "<Down>", "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr = true, silent = true })

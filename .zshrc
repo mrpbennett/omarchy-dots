@@ -39,13 +39,13 @@ export VAULT_ADDR="http://192.168.7.14:8200"
 OMARCHY_DOTS_DIR=${${(%):-%x}:A:h}
 
 # add new files to stow
-alias re-omarchy-dots='stow --dir="$OMARCHY_DOTS_DIR" --target="$HOME" --no-folding --restow .'
+alias re-omarchydots='stow --dir="$OMARCHY_DOTS_DIR" --target="$HOME" --no-folding --restow .'
 
 # adopt new files to stow
-alias ad-omarchy-dots='stow --dir="$OMARCHY_DOTS_DIR" --target="$HOME" --no-folding --adopt .'
+alias ad-omarchydots='stow --dir="$OMARCHY_DOTS_DIR" --target="$HOME" --no-folding --adopt .'
 
 # dry run stow
-alias dr-omarchy-dots='stow --dir="$OMARCHY_DOTS_DIR" --target="$HOME" --no-folding --restow --simulate .'
+alias dr-omarchydots='stow --dir="$OMARCHY_DOTS_DIR" --target="$HOME" --no-folding --restow --simulate .'
 
 alias e="exit"
 alias v="nvim"
@@ -80,10 +80,6 @@ alias tb='terminal-browser'
 alias tbo='terminal-browser open $1'
 alias tbl='terminal-browser ls'
 
-# VM ---
-alias rdev="TERM=xterm-256color ssh pb@rdev"
-alias pi-node-2="TERM=xterm-256color ssh pi-node-2"
-
 # UV ---
 alias ui="uv init"
 alias ua="uv add"
@@ -105,7 +101,7 @@ alias kgd="k get deployments"
 alias kns="kubens"
 alias ke="k exec -it"
 alias kcns='k config set-context --current --namespace'
-alias kw-token="cat ~/.kube/cache/oidc-login/lga-dm-dev/* | jq -r '.id_token'"
+alias ktoken="cat ~/.kube/cache/oidc-login/lga-dm-dev/* | jq -r '.id_token'"
 alias kc='k config'
 alias kctx='tv k8s-contexts'
 
@@ -139,7 +135,7 @@ function b64d() {
   echo -n "$1" | base64 -d | wl-copy
 }
 
-dotfiles(){
+function dotfiles(){
   cd "$HOME/.dotfiles" || return
   nvim .
 }
