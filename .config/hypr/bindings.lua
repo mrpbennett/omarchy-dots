@@ -106,3 +106,11 @@ for _, bind in ipairs(resize_binds) do
     fileblade("windowResize " .. bind[3] .. " " .. bind[4],
       string.format("hl.dsp.window.resize({ x = %d, y = %d, relative = true })", bind[3], bind[4])))
 end
+
+-- strata-installer: file-manager start
+hl.unbind("SUPER + SHIFT + F")
+hl.unbind("SUPER + ALT + SHIFT + F")
+o.bind("SUPER + SHIFT + F", "File manager", { launch = "/home/pb/.local/bin/strata" })
+o.bind("SUPER + ALT + SHIFT + F", "File manager (cwd)",
+  "uwsm-app -- /home/pb/.local/bin/strata \"$(omarchy-cmd-terminal-cwd)\"")
+-- strata-installer: file-manager end

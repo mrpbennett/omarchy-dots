@@ -4,6 +4,9 @@ return {
   {
     "neovim/nvim-lspconfig",
     opts = {
+      -- in favour for tiny-inline-diagnostic
+      diagnostics = { virtual_text = false },
+      --
       servers = {
         -- disable
         pyright = { autostart = false },
