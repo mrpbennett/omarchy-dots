@@ -36,7 +36,7 @@ rust = "latest"
 # mictrsoft sqlcmd
 "github:microsoft/go-sqlcmd" = "latest"
 # https://github.com/mrpbennett/bucky
-"go:github.com/mrpbennett/bucky/cmd/bucky" = "latest"
+"go:github.com/mrpbennett/bucky/cmd/bucky" = "v0.1.7"
 # https://github.com/joshmedeski/sesh
 "go:github.com/joshmedeski/sesh/v2" = "latest"
 

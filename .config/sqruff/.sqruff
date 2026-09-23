@@ -3,7 +3,7 @@ dialect = trino
 rules = core,LT03,LT09
 output_line_length = 120
 max_line_length = 120
-exclude_rules = LT05,LT12,AM06
+exclude_rules = LT05,LT06,LT12,AM06
 
 [sqruff:indentation]
 tab_space_size = 4

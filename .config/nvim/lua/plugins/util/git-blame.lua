@@ -3,7 +3,7 @@ return {
   "f-person/git-blame.nvim",
   event = "VeryLazy",
   opts = {
-    enabled = true,
+    enabled = false,
     message_template = " <summary> • <date> • <author> • <<sha>>",
     message_when_not_committed = "",
     date_format = "%r",

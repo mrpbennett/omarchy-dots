@@ -30,7 +30,11 @@ zle -N zle-line-init
 #
 
 # EXPORTS ---
-export VAULT_ADDR="http://192.168.7.14:8200"
+export VAULT_ADDR="http://192.168.7.11:8200"
+
+# seaweedfs
+export AWS_ACCESS_KEY_ID=2BMRR51DV0ZFOPW1SSJK
+export AWS_SECRET_ACCESS_KEY=8WjaZVB9McZTYc6cDVsVHGY9sGeKB56PBqtWtres3k
 
 # CUSTOM aliases ---
 
@@ -104,6 +108,11 @@ alias kcns='k config set-context --current --namespace'
 alias ktoken="cat ~/.kube/cache/oidc-login/lga-dm-dev/* | jq -r '.id_token'"
 alias kc='k config'
 alias kctx='tv k8s-contexts'
+
+# ARGOCD ---
+alias arg="argocd"
+alias argl="arg list"
+alias arga="arg app"
 
 # HELM ---
 alias hrl="helm repo list"
