@@ -8,6 +8,9 @@ require("mason").setup()
 
 require("mason-tool-installer").setup({
   ensure_installed = {
+    -- copilot
+    "copilot-language-server",
+
     -- lua
     "lua-language-server",
 
@@ -83,6 +86,8 @@ vim.lsp.config("ty", {
 })
 
 vim.lsp.enable({
+  -- copilot
+  "copilot-language-server",
   -- lua
   "lua_ls",
 

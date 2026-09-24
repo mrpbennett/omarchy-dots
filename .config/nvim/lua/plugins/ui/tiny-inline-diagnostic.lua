@@ -5,7 +5,7 @@ return {
       event = "VeryLazy",
       priority = 1000,
       opts = {
-        preset = "powerline",
+        preset = "classic",
         add_messages = {
           display_count = true,
         },

@@ -15,6 +15,7 @@ require("plugins.editor.gitsigns")
 require("plugins.editor.grug-far")
 require("plugins.editor.mini-notify")
 require("plugins.editor.snacks")
+require("plugins.editor.sidekick")
 require("plugins.editor.todo-comments")
 require("plugins.editor.trouble")
 
