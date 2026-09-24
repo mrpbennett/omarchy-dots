@@ -54,6 +54,7 @@ alias dr-omarchydots='stow --dir="$OMARCHY_DOTS_DIR" --target="$HOME" --no-foldi
 alias e="exit"
 alias v="nvim"
 alias nn='NVIM_APPNAME="nvim-native" nvim' # native nvim setup test
+alias nl='NVIM_APPNAME="nvim-lean" nvim' # native nvim setup test
 alias h="herdr"
 alias bt="btop"
 alias cat="bat"

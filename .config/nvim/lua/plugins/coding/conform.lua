@@ -41,10 +41,10 @@ return {
             return {
               "-c",
               "sqruff fix --format none --config "
-                .. sqruff.config(dialect)
-                .. " --dialect "
-                .. dialect
-                .. " - | sed -e :a -e '/^$/{$d;N;ba' -e '}'",
+              .. sqruff.config(dialect)
+              .. " --dialect "
+              .. dialect
+              .. " - | sed -e :a -e '/^$/{$d;N;ba' -e '}'",
             }
           end,
           stdin = true,

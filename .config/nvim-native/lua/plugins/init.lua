@@ -12,7 +12,7 @@ require("plugins.coding.treesitter")
 require('plugins.ui.bufferline')
 require('plugins.ui.colorscheme')
 require("plugins.ui.lualine")
-require('plugins.ui.mini-notify')
+require('.config.nvim-lean.lua.plugins.editor.mini-notify')
 
 -- util
 require("plugins.utils.oil")
