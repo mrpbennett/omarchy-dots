@@ -62,6 +62,10 @@
       "src": "https://github.com/nvim-mini/mini.pairs",
       "version": "'stable'"
     },
+    "mini.surround": {
+      "rev": "33a2ebe5df8eb4751828fcba133e18ed0fbbdfab",
+      "src": "https://github.com/nvim-mini/mini.surround"
+    },
     "nvim-dap": {
       "rev": "cfa2d58f4537aca6ca83e2de1a0d9f1491121264",
       "src": "https://github.com/mfussenegger/nvim-dap"
