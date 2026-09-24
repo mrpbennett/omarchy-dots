@@ -17,34 +17,32 @@ require("conform").setup({
       "ruff_format",
       "ruff_organize_imports",
     },
+    go = { "goimports", "gofumpt" },
+    sql = { "sqruff" },
+    yaml = { "yamlfmt" },
   },
 
   formatters = {
     --
     sqruff = {
-      -- sqruff fix emits an extra trailing newline on stdout; strip trailing blank lines via sed.
-      -- Dialect is inferred from the filename prefix (bq_/pg_/trino_/tsql_/vert_) since sqruff
-      -- doesn't merge a project-local .sqruff with this shared config.
-      command = "sh",
+      -- Dialect is inferred from the filename prefix.
+      command = "sqruff",
       args = function(_, ctx)
         local sqruff = require("util.sqruff")
         local dialect = sqruff.dialect(ctx.filename)
         return {
-          "-c",
-          "sqruff fix --format none --config "
-          .. sqruff.config(dialect)
-          .. " --dialect "
-          .. dialect
-          .. " - | sed -e :a -e '/^$/{$d;N;ba' -e '}'",
+          "fix", "--format", "none", "--config", sqruff.config(dialect),
+          "--dialect", dialect, "-",
         }
       end,
       stdin = true,
     },
   },
 
-  format_on_save = {
-    timeout_ms = 500,
-    lsp_format = "fallback",
-    quiet = true,
-  },
+  format_on_save = function(bufnr)
+    if vim.g.autoformat == false or vim.b[bufnr].autoformat == false then
+      return
+    end
+    return { timeout_ms = 3000, lsp_format = "fallback", quiet = true }
+  end,
 })

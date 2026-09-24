@@ -1,6 +1,4 @@
 -- Shared sqruff dialect detection by filename prefix (bq_/pg_/trino_/tsql_/vert_).
--- Used by both conform.lua (fix) and nvim-lint.lua (lint) so the convention
--- can't drift between formatting and linting.
 local M = {}
 
 function M.dialect(filename)
