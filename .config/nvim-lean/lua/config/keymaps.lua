@@ -58,13 +58,13 @@ map("n", "<leader>fn", "<cmd>enew<cr>", { desc = "New File" })
 
 -- diagnostic
 local diagnostic_goto = function(next, severity)
-    return function()
-        vim.diagnostic.jump({
-            count = (next and 1 or -1) * vim.v.count1,
-            severity = severity and vim.diagnostic.severity[severity] or nil,
-            float = true,
-        })
-    end
+  return function()
+    vim.diagnostic.jump({
+      count = (next and 1 or -1) * vim.v.count1,
+      severity = severity and vim.diagnostic.severity[severity] or nil,
+      float = true,
+    })
+  end
 end
 
 map("n", "<leader>cd", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
@@ -81,8 +81,8 @@ map("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit All" })
 -- highlights under cursor
 map("n", "<leader>ui", vim.show_pos, { desc = "Inspect Pos" })
 map("n", "<leader>uI", function()
-    vim.treesitter.inspect_tree()
-    vim.api.nvim_input("I")
+  vim.treesitter.inspect_tree()
+  vim.api.nvim_input("I")
 end, { desc = "Inspect Tree" })
 
 -- windows
@@ -109,15 +109,19 @@ map("n", "<leader><tab>[", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
 
 -- Quickfix and location lists
 map("n", "<leader>xl", function()
-    local success, err = pcall(vim.fn.getloclist(0, { winid = 0 }).winid ~= 0 and vim.cmd.lclose or vim.cmd.lopen)
-    if not success and err then
-        vim.notify(err, vim.log.levels.ERROR)
-    end
+  local success, err = pcall(vim.fn.getloclist(0, { winid = 0 }).winid ~= 0 and vim.cmd.lclose or vim.cmd.lopen)
+  if not success and err then
+    vim.notify(err, vim.log.levels.ERROR)
+  end
 end, { desc = "Location List" })
 
 map("n", "<leader>xq", function()
-    local success, err = pcall(vim.fn.getqflist({ winid = 0 }).winid ~= 0 and vim.cmd.cclose or vim.cmd.copen)
-    if not success and err then
-        vim.notify(err, vim.log.levels.ERROR)
-    end
+  local success, err = pcall(vim.fn.getqflist({ winid = 0 }).winid ~= 0 and vim.cmd.cclose or vim.cmd.copen)
+  if not success and err then
+    vim.notify(err, vim.log.levels.ERROR)
+  end
 end, { desc = "Quickfix List" })
+
+-- Hunk.dev
+map("n", "<leader>ohh", function() Snacks.terminal("hunk diff") end, { desc = "Hunk Diff" })
+map("n", "<leader>ohm", function() Snacks.terminal("hunk diff origin/main") end, { desc = "Hunk Diff - origin/main" })

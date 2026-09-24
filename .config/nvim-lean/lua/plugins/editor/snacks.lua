@@ -29,7 +29,15 @@ require("snacks").setup({
   },
   picker = {
     enabled = true,
+    exculde = {
+      ".git",
+      ".DS_Store"
+    },
     sources = {
+      explorer = {
+        ignored = true,
+        hidden = true,
+      },
       -- aerial.nvim provides symbol hierarchy; use it for lsp symbol pickers
       lsp_symbols = {
         finder = "lsp_symbols",
