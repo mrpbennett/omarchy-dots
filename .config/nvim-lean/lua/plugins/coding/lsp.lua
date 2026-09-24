@@ -72,21 +72,12 @@ vim.lsp.config("gopls", {
 
 -- Python
 vim.lsp.config("ty", {
+  root_markers = { ".venv", "ty.toml", "pyproject.toml", "setup.py", "setup.cfg", "requirements.txt", ".git" },
   settings = {
     ty = {
       inlayHints = {
         variableTypes = true,
       },
-
-      root_markers = { ".venv", "ty.toml", "pyproject.toml", "setup.py", "setup.cfg", "requirements.txt", ".git" },
-      cmd = function(dispatchers, config)
-        return vim.lsp.rpc.start({ "ty", "server" }, dispatchers, {
-          cwd = config.root_dir,
-          env = config.cmd_env,
-          detached = config.detached,
-        })
-      end,
-
     },
   },
 })

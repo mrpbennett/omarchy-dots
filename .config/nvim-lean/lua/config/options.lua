@@ -4,7 +4,8 @@ local opt = vim.opt
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
-vim.g.autoformat = true -- auto format
+vim.g.autoformat = true   -- auto format
+vim.g.editorconfig = true -- enable EditorConfig files
 
 --[[
 	general options

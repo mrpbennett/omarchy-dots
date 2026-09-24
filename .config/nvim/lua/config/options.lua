@@ -17,3 +17,6 @@ vim.g.lazyvim_python_lsp = "ty"
 
 -- disable the option to require prettier config file
 vim.g.lazyvim_prettier_needs_config = false
+
+-- enable editorconfig files
+vim.g.editorconfig = true
