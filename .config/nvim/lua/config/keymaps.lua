@@ -5,4 +5,4 @@
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
 -- hunk diff
-vim.keymap.set("n", "<leader>gh", function() Snacks.terminal("hunk diff") end, { desc = "Hunk Diff" })
+vim.keymap.set("n", "<leader>gH", function() Snacks.terminal("hunk diff") end, { desc = "Hunk Diff" })
