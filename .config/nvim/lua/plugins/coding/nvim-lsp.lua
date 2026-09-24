@@ -21,6 +21,9 @@ return {
         -- from the project root. Force cwd = root_dir at spawn time, same
         -- pattern nvim-lspconfig already uses for csharp_ls/jdtls/ruby_lsp.
         ty = {
+          -- A monorepo's Git root can contain multiple Python projects. Prefer
+          -- the virtual environment so the server starts beside its packages.
+          root_markers = { ".venv", "ty.toml", "pyproject.toml", "setup.py", "setup.cfg", "requirements.txt", ".git" },
           cmd = function(dispatchers, config)
             return vim.lsp.rpc.start({ "ty", "server" }, dispatchers, {
               cwd = config.root_dir,
