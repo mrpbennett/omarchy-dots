@@ -29,7 +29,7 @@ require("snacks").setup({
   },
   picker = {
     enabled = true,
-    exculde = {
+    exclude = {
       ".git",
       ".DS_Store"
     },
@@ -63,6 +63,10 @@ require("snacks").setup({
   scope = { enabled = true },
   scroll = { enabled = true },
   statuscolumn = { enabled = true },
+  terminal = {
+    enabled = true,
+    win = { position = "bottom", height = 0.3 },
+  },
   words = { enabled = true },
 })
 
@@ -151,6 +155,14 @@ map("n", "<leader>gg", function() Snacks.lazygit() end, "Lazygit")
 map("n", "<leader>un", function() Snacks.notifier.hide() end, "Dismiss All Notifications")
 map("n", "<c-/>", function() Snacks.terminal() end, "Toggle Terminal")
 map("n", "<c-_>", function() Snacks.terminal() end, "which_key_ignore")
+map("n", "<leader>fT", function()
+  Snacks.terminal(nil, { cwd = vim.fn.expand("%:p:h") })
+end, "Terminal (File Dir)")
+map("t", "<esc><esc>", "<c-\\><c-n>", "Exit Terminal Mode")
+map("t", "<c-h>", "<c-\\><c-n><c-w>h", "Go to Left Window")
+map("t", "<c-j>", "<c-\\><c-n><c-w>j", "Go to Lower Window")
+map("t", "<c-k>", "<c-\\><c-n><c-w>k", "Go to Upper Window")
+map("t", "<c-l>", "<c-\\><c-n><c-w>l", "Go to Right Window")
 map({ "n", "t" }, "]]", function() Snacks.words.jump(vim.v.count1) end, "Next Reference")
 map({ "n", "t" }, "[[", function() Snacks.words.jump(-vim.v.count1) end, "Prev Reference")
 map("n", "<leader>N", function()
@@ -168,22 +180,9 @@ map("n", "<leader>N", function()
   })
 end, "Neovim News")
 
--- Debug globals
-_G.dd = function(...)
-  Snacks.debug.inspect(...)
-end
-_G.bt = function()
-  Snacks.debug.backtrace()
-end
-
--- Override print to use snacks for `:=` command
-if vim.fn.has("nvim-0.11") == 1 then
-  vim._print = function(_, ...)
-    dd(...)
-  end
-else
-  vim.print = _G.dd
-end
+-- Hunk.dev
+map("n", "<leader>ohh", function() Snacks.terminal("hunk diff") end, "Hunk Diff")
+map("n", "<leader>ohm", function() Snacks.terminal("hunk diff origin/main") end, "Hunk Diff - origin/main")
 
 -- Toggle mappings
 Snacks.toggle.option("spell", { name = "Spelling" }):map("<leader>us")

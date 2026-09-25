@@ -122,6 +122,14 @@ map("n", "<leader>xq", function()
   end
 end, { desc = "Quickfix List" })
 
--- Hunk.dev
-map("n", "<leader>ohh", function() Snacks.terminal("hunk diff") end, { desc = "Hunk Diff" })
-map("n", "<leader>ohm", function() Snacks.terminal("hunk diff origin/main") end, { desc = "Hunk Diff - origin/main" })
+-- floating terminal
+map("n", "<leader>fo", function()
+  Snacks.terminal(nil, {
+    win = {
+      style = "float",
+      border = "rounded",
+      title = " Terminal ",
+      title_pos = "center",
+    },
+  })
+end, { desc = "Terminal (floating)" })

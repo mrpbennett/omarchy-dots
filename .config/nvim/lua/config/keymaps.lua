@@ -4,6 +4,20 @@
 
 local map = vim.keymap.set
 
+--
+map("n", "<leader>fo", function()
+  Snacks.terminal(nil, {
+    win = {
+      style = "float",
+      border = "rounded",
+      title = " Terminal ",
+      title_pos = "center",
+    },
+  })
+end, { desc = "Terminal (floating)" })
+
+--
+
 map("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
 -- Hunk.dev

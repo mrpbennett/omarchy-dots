@@ -6,7 +6,8 @@ return {
     opts = {
       preset = "helix",
       spec = {
-        { "<leader>t", group = "tools", icon = { icon = "󱁤" } },
+        { "<leader>o", group = "open tuis", icon = { icon = "󱁤" } },
+        { "<leader>oh", group = "hunk", icon = { icon = "󱁤" } },
       },
     },
   },
