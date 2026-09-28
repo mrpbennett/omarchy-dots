@@ -126,20 +126,27 @@ EOF
 }
 
 # install omarchy shell plugins from their git remotes
-install_omarchy_plugins() {
+omarchy_plugins() {
   plugin_urls=(
     "https://github.com/mrpbennett/qs-fortivpn.git"
     "https://github.com/mrpbennett/qs-herdr-agents.git"
     "https://github.com/sspaeti/omarchy-timezones-plugin.git"
     "https://github.com/AksharP5/omarchy-radio-atlas.git"
+    "https://github.com/tornikegomareli/omarchy-spaces.git"
   )
 
   for url in "${plugin_urls[@]}"; do
     omarchy plugin add "$url" --enable --yes || true
   done
 
-  # disable default lock screen for a custom one
-  omarchy plugin disable omarchy.lock
+  disable_default_plugins=(
+    "omarchy.lock"
+    "omarchy.workspaces"
+  )
+
+  for plugin in "${disable_default_plugins[@]}"; do
+    omarchy plugin disable
+  done
 
 }
 
@@ -245,7 +252,7 @@ install_required_packages
 clean_omarchy
 setup_zsh
 setup_ssh
-install_omarchy_plugins
+omarchy_plugins
 stow_dotfiles
 omarchy_update_mise_and_dev
 omarchy_final_touches

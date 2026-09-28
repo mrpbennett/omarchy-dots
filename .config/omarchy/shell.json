@@ -14,7 +14,10 @@
           "id": "omarchy.menu"
         },
         {
-          "id": "omarchy.workspaces"
+          "id": "tornikegomareli.spaces",
+          "iconStyle": "color",
+          "showApps": "hoverOnly",
+          "hideEmpty": true
         }
       ],
       "center": [
