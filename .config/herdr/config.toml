@@ -17,7 +17,7 @@ new_cwd = "follow"
 default_shell = "zsh"
 
 [keys]
-prefix = "ctrl+space"
+prefix = ["ctrl+space", "ctrl+s"]
 
 # Config and help
 reload_config = "prefix+q"
