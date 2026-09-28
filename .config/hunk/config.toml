@@ -1,5 +1,5 @@
-theme = "catppuccin-latte"
-mode = "split"
+theme = "catppuccin-mocha"
+mode = "auto"
 vcs = "git"
 line_numbers = true
 exclude_untracked = false
