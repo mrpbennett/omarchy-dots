@@ -103,23 +103,23 @@ setup_zsh() {
 setup_ssh() {
   local ssh_dir="$HOME/.ssh"
   local ssh_config="$ssh_dir/config"
-  local ssh_key="$ssh_dir/omarchy-pc"
+  local ssh_key="$ssh_dir/omarchy"
 
   install -d -m 700 "$ssh_dir"
 
   if [[ ! -f "$ssh_key" ]]; then
-    ssh-keygen -t ed25519 -f "$ssh_key" -C "omarchy-pc" -N ""
+    ssh-keygen -t ed25519 -f "$ssh_key" -C "omarchy" -N ""
   fi
 
   touch "$ssh_config"
   chmod 600 "$ssh_config"
 
-  if ! grep -Fq "IdentityFile ~/.ssh/omarchy-pc" "$ssh_config"; then
+  if ! grep -Fq "IdentityFile ~/.ssh/omarchy" "$ssh_config"; then
     cat >>"$ssh_config" <<'EOF'
 
 Host github.com
   User git
-  IdentityFile ~/.ssh/omarchy-pc
+  IdentityFile ~/.ssh/omarchy
   IdentitiesOnly yes
 EOF
   fi
