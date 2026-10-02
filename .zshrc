@@ -53,8 +53,7 @@ alias dr-omarchydots='stow --dir="$OMARCHY_DOTS_DIR" --target="$HOME" --no-foldi
 
 alias e="exit"
 alias v="nvim"
-alias nn='NVIM_APPNAME="nvim-native" nvim' # native nvim setup test
-alias nl='NVIM_APPNAME="nvim-lean" nvim' # native nvim setup test
+alias nl='NVIM_APPNAME="nvim-lean" nvim'
 alias h="herdr"
 alias bt="btop"
 alias cat="bat"
@@ -70,6 +69,7 @@ alias mi="mise install"
 alias mup="mise upgrade"
 
 alias oc="opencode"
+alias tssh="tailscale ssh"
 
 # Common Dirs ---
 alias dl="cd ~/Downloads/"
@@ -79,11 +79,6 @@ alias devp="cd ~/Work/pulsepoint/"
 alias vpn='omarchy-fortivpn start --push'
 alias svpn="omarchy-fortivpn stop"
 alias osh="omarchy-sesh"
-
-# Terminal Browser
-alias tb='terminal-browser'
-alias tbo='terminal-browser open $1'
-alias tbl='terminal-browser ls'
 
 # UV ---
 alias ui="uv init"
@@ -114,6 +109,7 @@ alias kctx='tv k8s-contexts'
 alias arg="argocd"
 alias argl="arg list"
 alias arga="arg app"
+alias argli="arg login argocd.70ld.dev --grpc-web"
 
 # HELM ---
 alias hrl="helm repo list"

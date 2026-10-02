@@ -1,3 +1,6 @@
+[settings]
+minimum_release_age = "0h"
+
 [tools]
 argocd = "latest"
 atuin = "latest"
@@ -9,6 +12,7 @@ gh = "latest"
 glow = "3.0.0"
 helix = "latest"
 helm = "latest"
+herdr = "latest"
 hunk = "latest"
 java = "25"
 k9s = "latest"
@@ -39,6 +43,8 @@ rust = "latest"
 "go:github.com/mrpbennett/bucky/cmd/bucky" = "v0.1.7"
 # https://github.com/joshmedeski/sesh
 "go:github.com/joshmedeski/sesh/v2" = "latest"
+pi = "latest"
+duf = "latest"
 
 [settings.upgrade]
 auto_prune = false

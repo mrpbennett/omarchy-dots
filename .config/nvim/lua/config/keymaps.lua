@@ -20,6 +20,50 @@ end, { desc = "Terminal (floating)" })
 
 map("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
+-- btop
+map("n", "<leader>ob", function()
+  Snacks.terminal("btop", {
+    win = {
+      title = "BTOP",
+      border = "rounded"
+    }
+  })
+end, { desc = "btop" })
+
 -- Hunk.dev
-map("n", "<leader>ohh", function() Snacks.terminal("hunk diff") end, { desc = "Hunk Diff" })
-map("n", "<leader>ohm", function() Snacks.terminal("hunk diff origin/main") end, { desc = "Hunk Diff - origin/main" })
+map("n", "<leader>ohh", function()
+  Snacks.terminal("hunk diff", {
+    win = {
+      title = "Hunk Diff",
+      border = "rounded"
+    }
+  })
+end, { desc = "Hunk Diff" })
+map("n", "<leader>ohm", function()
+  Snacks.terminal("hunk diff origin/main", {
+    win = {
+      title = "Hunk Diff origin/main",
+      border = "rounded"
+    }
+  })
+end, { desc = "Hunk Diff - origin/main" })
+
+-- K9s
+map("n", "<leader>ok", function()
+  Snacks.terminal("k9s", {
+    win = {
+      title = "Kubernetes",
+      border = "rounded"
+    }
+  })
+end, { desc = "K9s" })
+
+-- Dash PR
+map("n", "<leader>od", function()
+  Snacks.terminal("gh dash", {
+    win = {
+      title = "Dash",
+      border = "rounded"
+    }
+  })
+end, { desc = "GH Dash" })
