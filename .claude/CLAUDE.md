@@ -45,7 +45,7 @@ When modifying existing configuration or keybinding systems, **extend the existi
 
 ### Kuberentes
 
-- You only ever have access to the `k3s-rpi` context. Any other context requires permission to use.
+- You only ever have access to the `portland` context. Any other context requires permission to use.
 
 ## Verification Before Done
 

@@ -90,6 +90,9 @@ alias ur="uv run"
 export KUBECONFIG=$HOME/.kube/config/home.yaml
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
+# short name for talosctl (uses the context in ~/.talos/config)
+alias tctl=talosctl
+
 alias k="kubectl"
 alias ka="k apply -f"
 alias kg="k get"
@@ -141,11 +144,14 @@ function b64d() {
   echo -n "$1" | base64 -d | wl-copy
 }
 
+# open up my dotfiles in nvim where ever i am
 function dotfiles(){
   cd "$HOME/.dotfiles" || return
   nvim .
 }
 
+
+# tmux sesh sessions
 function ts() {
   {
     exec </dev/tty
