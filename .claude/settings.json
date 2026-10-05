@@ -51,6 +51,7 @@
     "jdtls-lsp@claude-plugins-official": true
   },
   "effortLevel": "medium",
+  "tui": "fullscreen",
   "skipDangerousModePermissionPrompt": true,
   "theme": "custom:omarchy",
   "editorMode": "vim"

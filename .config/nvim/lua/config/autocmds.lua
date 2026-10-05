@@ -5,14 +5,6 @@
 -- with `vim.api.nvim_create_autocmd`
 --
 
--- vim.api.nvim_create_autocmd("FileType", {
---   pattern = "python",
---   callback = function(args)
---     vim.b[args.buf].autoformat = false
---   end,
--- })
-
-
 -- Or remove existing autocmds by their group name (which is prefixed with `lazyvim_` for the defaults)
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
 --
@@ -32,14 +24,5 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.shiftwidth = 4
     vim.opt_local.softtabstop = 4
     vim.opt_local.tabstop = 4
-  end,
-})
-
-
--- Trim trailing whitespave on save
-vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = "*",
-  callback = function()
-    vim.cmd([[%s/\s\+$//e]])
   end,
 })

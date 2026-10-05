@@ -15,14 +15,14 @@
         },
         {
           "id": "tornikegomareli.spaces",
-          "iconStyle": "color",
-          "showApps": "hoverOnly",
-          "hideEmpty": false,
-          "showIcons": true,
-          "settingsButton": "always",
+          "animations": false,
           "density": "roomy",
+          "hideEmpty": false,
+          "iconStyle": "color",
           "labelStyle": "glyph",
-          "animations": false
+          "settingsButton": "never",
+          "showApps": "hoverOnly",
+          "showIcons": true
         }
       ],
       "center": [
