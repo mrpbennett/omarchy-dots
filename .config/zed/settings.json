@@ -1,0 +1,45 @@
+{
+  "project_panel": {
+    "dock": "left"
+  },
+  "languages": {
+    "YAML": {
+      "tab_size": 2
+    },
+    "SQL": {
+      "preferred_line_length": 120
+    }
+  },
+  "terminal": {
+    "shell": {
+      "program": "zsh"
+    }
+  },
+  "markdown_preview_font_family": "JetBrainsMono Nerd Font",
+  "buffer_line_height": "comfortable",
+  "buffer_font_size": 14.0,
+  "icon_theme": {
+    "mode": "system",
+    "light": "Zed (Default)",
+    "dark": "Zed (Default)"
+  },
+  "default_open_behavior": "existing_window",
+  "session": {
+    "trust_all_worktrees": true
+  },
+  "theme": {
+    "mode": "system",
+    "light": "Omazed",
+    "dark": "Omazed"
+  },
+  "buffer_font_family": "JetBrainsMono Nerd Font",
+  "vim_mode": true,
+  "relative_line_numbers": "enabled",
+  "which_key": {
+    "enabled": true,
+    "delay_ms": 1000
+  },
+  "git": {
+    "diff_base": "head"
+  },
+}
