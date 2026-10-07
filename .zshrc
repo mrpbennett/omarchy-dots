@@ -86,7 +86,7 @@ export KUBECONFIG=$HOME/.kube/config/home.yaml
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 # short name for talosctl (uses the context in ~/.talos/config)
-alias tctl=talosctl
+alias tctl="talosctl --talosconfig /home/pb/Projects/home-ops/servers/talos-cluster/talosconfig"
 alias k9s="k9s --context portland"
 
 alias k="kubectl"
