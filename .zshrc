@@ -30,11 +30,6 @@ zle -N zle-line-init
 #
 
 # EXPORTS ---
-export VAULT_ADDR="http://192.168.7.11:8200"
-
-# seaweedfs
-export AWS_ACCESS_KEY_ID=2BMRR51DV0ZFOPW1SSJK
-export AWS_SECRET_ACCESS_KEY=8WjaZVB9McZTYc6cDVsVHGY9sGeKB56PBqtWtres3k
 
 # CUSTOM aliases ---
 
@@ -92,6 +87,7 @@ export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 # short name for talosctl (uses the context in ~/.talos/config)
 alias tctl=talosctl
+alias k9s="k9s --context portland"
 
 alias k="kubectl"
 alias ka="k apply -f"
@@ -121,6 +117,10 @@ alias hsr="helm search repo ''"
 hsv() {
   helm show values "$@" | bat -l yaml
 }
+
+# TERRAFORM
+export VAULT_ADDR="http://192.168.7.12:8200"
+alias tfa="terraform apply -var-file=../terraform.tfvars -var vault_address=https://vault.70ld.dev"
 
 # INITS ---
 eval "$(atuin init zsh)"

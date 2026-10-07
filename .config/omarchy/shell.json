@@ -47,6 +47,9 @@
           "id": "omarchy.weather"
         },
         {
+          "id": "com.omastorm.radar"
+        },
+        {
           "id": "io.github.sspaeti.timezones",
           "homeZones": [
             "Europe/London"
