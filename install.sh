@@ -125,6 +125,30 @@ EOF
   fi
 }
 
+# resolve *.70ld.dev (AdGuard DNS rewrites) via AdGuard on the wired link only.
+# A "~" routing domain keeps VPN and every other domain on their own DNS.
+# See TIL/homelab/split-dns-client-vpn-routing-domain in the Obsidian vault.
+setup_homelab_dns() {
+  local adguard_ip="192.168.4.2"
+  local routing_domain="~70ld.dev"
+  local device connection
+
+  device=$(nmcli -t -f DEVICE,TYPE,STATE device | awk -F: '$2=="ethernet" && $3=="connected" {print $1; exit}')
+  if [[ -z $device ]]; then
+    echo "WARN: no connected ethernet device; skipping homelab DNS. Re-run once plugged in." >&2
+    return 0
+  fi
+
+  connection=$(nmcli -g GENERAL.CONNECTION device show "$device")
+  echo "Homelab DNS: $routing_domain -> $adguard_ip on $device ($connection)"
+
+  nmcli connection modify "$connection" \
+    ipv4.dns "$adguard_ip" \
+    ipv4.ignore-auto-dns yes \
+    ipv4.dns-search "$routing_domain"
+  nmcli device reapply "$device"
+}
+
 # install omarchy shell plugins from their git remotes
 omarchy_plugins() {
   plugin_urls=(
@@ -237,6 +261,7 @@ install_required_packages
 clean_omarchy
 setup_zsh
 setup_ssh
+setup_homelab_dns
 omarchy_plugins
 stow_dotfiles
 omarchy_update_mise_and_dev
